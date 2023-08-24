@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce with Vanilla JS</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Product Page</h1>
+    <input type="search" placeholder="search" id="searchBar" />
+    <button id="cartButton">View Cart</button>
+    <p class="cartTotal">Total: $0</p>
+  </div>
+
+  <div class="controls">
+    <button id="sortButton">Sort by Name</button>
+    <button id="sortButtonPrice">Sort by Price</button>
+  </div>
+
+  <div id="cardContainer" class="product-container">
+    <!-- Product cards will be dynamically added here -->
+  </div>
+
+  <div id="cartContainer" class="cart-container">
+    <!-- Cart items will be dynamically added here -->
+  </div>
+
+  <div class="cart" id="cartContainer">
+    <h2>Cart</h2>
+    <ul id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </ul>
+    <p>Total: <span class="cartTotal">$0</span></p>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
