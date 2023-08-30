@@ -254,10 +254,97 @@ body {
   font-weight: var(--fw-600);
 }
 
-/*  Products Container  */
+/*  Products Section  */
+/*  filter buttons  */
+
+.tab-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 20px;
+  list-style: none;
+  margin: 30px auto;
+  padding: 0;
+  width: 80%;
+}
+
+.tab-button {
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  padding: 10px 10px;
+  text-align: center;
+  background-color: var(--mrc-red);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.tab-button:hover {
+  background-color: #ccc;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.filter-button.active-filter {
+  background-color: var(--mrc-blue);
+  color: #fff;
+}
+
+/* Search and sort buttons */
+
+.sortSearch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 50%;
+  margin: 0 auto;
+  gap: 40px;
+  padding: 20px;
+}
+
+.add-to-cart.form-label, .add-to-cart {
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.add-to-cart.form-label { border-radius: 5px;}
+
+.add-to-cart.form-label:hover, .add-to-cart:hover {
+  background-color: #ccc;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart {
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: none;
+  outline: none;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
 
 .products-menu {
   margin-top: 60px;
+}
+
+#products {
+  margin-top: 100px;
+  width: 100%;
+}
+
+.section-title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 #products-container {
@@ -297,12 +384,3 @@ body {
   letter-spacing: 0.5px;
   font-family: var(--ff-merriweather);
 }
-
-.products-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 60%;
-  margin: 80px auto;
-}
-
