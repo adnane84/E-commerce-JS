@@ -10,6 +10,8 @@ export function addToCart(product) {
   }
 
   updateCart();
+  updateCartIconDigit();
+
 }
 
 // Function to increment item quantity
@@ -21,6 +23,7 @@ export function incrementQuantity(product) {
     item.quantity++;
   }
   updateCart();
+  updateCartIconDigit();
 }
 
 // Function to decrement item quantity
@@ -36,6 +39,7 @@ export function decrementQuantity(product) {
       cartItems.splice(itemIndex, 1);
     }
     updateCart();
+    updateCartIconDigit();
   }
 }
 
@@ -66,6 +70,7 @@ export function updateCart() {
   incrementButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const product = JSON.parse(button.dataset.product);
+      console.log(product)
       incrementQuantity(product);
     });
   });
@@ -89,3 +94,16 @@ export function updateCartTotal() {
     cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
   });
 }
+
+export function updateCartIconDigit() {
+  const digitIcon = document.querySelector(".digit-icon");
+  const cartItemsCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  if (cartItemsCount > 0) {
+    digitIcon.style.display = "inline-block";
+    digitIcon.textContent = cartItemsCount;
+  } else {
+    digitIcon.style.display = "none";
+  }
+}
+
