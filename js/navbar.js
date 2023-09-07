@@ -12,7 +12,7 @@ export const navbar = [
   {
       "id": 3,
       "label": "Services",
-      "link": "/services"
+      "link": "/services",
   },
   {
       "id": 4,
@@ -26,6 +26,8 @@ export const navbar = [
   }
 ]
 
+
+// navbar.js
 
 // navbar.js
 
@@ -43,30 +45,6 @@ export function createNavbar(navbarData) {
     listItem.appendChild(link);
     navbarContainer.appendChild(listItem);
   });
-
-  // Create the cart icon and digit icon
-  const cartIcon = document.createElement("ion-icon");
-  cartIcon.className = "cart-logo nav-item"; // Replace with the class for your cart icon
-  cartIcon.name = "cart";
-  cartIcon.size = "large";
-
-  // Create a digit icon with an initial value of 0 (hidden initially)
-  const digitIcon = document.createElement("span");
-  digitIcon.className = "digit-icon";
-  digitIcon.textContent = "0";
-  digitIcon.style.display = "none"; // Initially hidden
-
-  // Create a container for the cart and digit icons
-  const cartContainer = document.createElement("div");
-  cartContainer.className = "cart-container";
-  cartContainer.appendChild(cartIcon);
-  cartContainer.appendChild(digitIcon);
-
-  // Add the cart container to the navbar
-  const cartListItem = document.createElement("li");
-  cartListItem.className = "nav-item";
-  cartListItem.appendChild(cartContainer);
-  navbarContainer.appendChild(cartListItem);
 }
 
 createNavbar(navbar)
