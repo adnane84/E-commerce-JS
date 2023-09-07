@@ -1,22 +1,17 @@
-// search.js
-
 export function setupSearch() {
-  const getSearchBar = document.querySelector("#searchBar");
-  const getAllCards = document.querySelectorAll(".post-card");
+  const searchBar = document.getElementById("searchBar");
+  const allCards = document.querySelectorAll(".post-card");
 
-  if (!getSearchBar || !getAllCards.length) {
-    console.error("DOM elements not found for search functionality.");
-    return;
-  }
+  searchBar.addEventListener("keyup", (e) => {
+    const searchValue = e.target.value.toLowerCase();
 
-  getSearchBar.addEventListener("keyup", (e) => {
-    getAllCards.forEach((product) => {
-      if (
-        product.innerText.toLowerCase().includes(e.target.value.toLowerCase())
-      ) {
-        product.style.display = "block";
+    allCards.forEach((card) => {
+      const cardTitle = card.querySelector(".card-title").innerText.toLowerCase();
+
+      if (cardTitle.includes(searchValue)) {
+        card.classList.remove("hidden");
       } else {
-        product.style.display = "none";
+        card.classList.add("hidden");
       }
     });
   });
