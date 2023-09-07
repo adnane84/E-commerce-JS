@@ -16,9 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:ital,wght@0,300;1,300&display=swap"
-    rel="stylesheet">
-  <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rosario:ital,wght@0,300;1,300&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
@@ -38,6 +35,10 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul id="navbar-list" class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
             style="--bs-scroll-height: 100px;"></ul>
+       <div class="cart-container" id="cart-container">
+  <ion-icon id="cartIcon" name="cart-outline" class="cart" size="large"></ion-icon>
+  <span class="digit-icon">0</span> <!-- This will display the quantity of items in the cart -->
+</div>
         </div>
       </div>
     </nav>
@@ -203,30 +204,96 @@
     </div>
 
     <!-- filtering categories -->
-
-    <ul class="tab-container" id="post-category"></ul>
-    <!-- Search and Sort -->
-
-    <div class="dropdown">
-      <button class="drop-btn btn btn-lg btn-primary dropdown-toggle">Sort</button>
-      <div class="dropdown-content">
-        <input type="search" class="form-label" placeholder=" Search..." id="searchBar" />
-        <button class="dropdown-item" id="sortButton">By Name</button>
-        <button class="dropdown-item" id="sortButtonPrice">By Price</button>
+    <div class="products-menu">
+      <div class="dropdown">
+        <button class="drop-btn btn btn-lg btn-primary dropdown-toggle">Sort</button>
+        <div class="dropdown-content">
+          <input type="search" class="form-label" placeholder=" Search..." id="searchBar" />
+          <button class="dropdown-item" id="sortButton">By Name</button>
+          <button class="dropdown-item" id="sortButtonPrice">By Price</button>
+        </div>
       </div>
+      <ul class="tab-container" id="post-category"></ul>
     </div>
 
-
+    <!-- Search and Sort -->
 
     <!-- products -->
 
-    <div class="products-menu"></div>
-
-    <button id="cartButton">View Cart</button>
-    <p class="cartTotal">Total: $0</p>
     <div id="products-container" class="row row-cols-1 row-cols-md-3 g-4">
     </div>
   </section>
+
+<section id="shopping-cart">
+  <div class="shopping-cart-title w-100 d-flex justify-content-between align-items-center p-4 mb-4 rounded">
+    <h3 class="mr-auto p-2">Shopping Cart</h3>
+    <button type="button" class="btn btn-outline-secondary btn-lg" id="go-back-button"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+  </div>
+  <div class="shopping-cart">
+    <div class="container">
+      <div class="wrapper wrapper-content animated fadeInRight">
+          <div class="row">
+              <div class="col-md-9">
+                  <div class="ibox" id="cart-summary">
+                    <!-- cart items -->
+                  </div>
+                  <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+      
+              </div>
+              <div class="col-md-3">
+                  <div class="ibox">
+                      <div class="ibox-title">
+                          <h5>Cart Summary</h5>
+                      </div>
+                      <div class="ibox-content">
+                          <span>
+                              Total
+                          </span>
+                          <h2 class="font-bold cartTotal">
+                           
+                          </h2>
+      
+                          <hr>
+                          <span class="text-muted small">
+                              *For United States, France and Germany applicable sales tax will be applied
+                          </span>
+                          <div class="m-t-sm">
+                              <div class="btn-group">
+                              <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                              <a href="#" class="btn btn-white btn-sm"> Cancel</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="ibox">
+                      <div class="ibox-title">
+                          <h5>Support</h5>
+                      </div>
+                      <div class="ibox-content text-center">
+                          <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                          <span class="small">
+                              Please contact with us if you have any questions. We are available 24h.
+                          </span>
+                      </div>
+                  </div>
+      
+                  <div class="ibox">
+                      <div class="ibox-content">
+      
+                          <p class="font-bold">
+                          Other products you may be interested
+                          </p>
+                          <hr>
+                          <div id="random-product"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+ 
+  </div>
+</section>
 
   <script type="module" src="./js/main.js"></script>
 </body>
