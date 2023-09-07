@@ -12,14 +12,3 @@ export function sortByPrice(products) {
   return sortedData;
 }
 
-// sorting.js
-
-export function getUniqueCategories(data) {
-  const categories = [...new Set(data.map(product => product.category))];
-  return categories;
-}
-
-export function filterByCategory(data, category) {
-  const filteredData = data.filter(product => product.category === category);
-  return filteredData;
-}
