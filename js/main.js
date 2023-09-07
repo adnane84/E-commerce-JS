@@ -3,42 +3,98 @@ import { navbar, createNavbar } from "./navbar.js";
 import { sortByName, sortByPrice } from "./sorting.js";
 import { getUniqueCategories, filterByCategory } from "./filter.js";
 import { setupSearch } from "./search.js";
+import { addToCart, getRandomProducts } from "./cart.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("products-container");
   const sortButton = document.getElementById("sortButton");
   const sortPrice = document.getElementById("sortButtonPrice");
   const categoryFilter = document.getElementById("post-category");
+  let currentData = [...data];
+  let currentFilter = null;
+  let searchQuery = "";
 
   function createCards(product) {
     const card = document.createElement("div");
     card.className = "post-card";
-    const { productName, price, brand, image } = product;
+    const { productName, price, craftsperson, image, description } = product;
     card.innerHTML = `
-     <div class="col product">
-       <div class="card shadow p-3">
-         <img src="${image}" class="card-img-top rounded" alt="${brand}" style="height:400px">
-         <div class="card-body">
-           <h5 class="card-title">${productName}</h5>
-           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-           <div class="product-info">
-           <button type="button" class="add-to-cart btn btn-outline-secondary btn-lg">Add Product</button>
-           <h4>$${price}</h4>
-           </div>
-         </div>
-       </div>
-     </div>
+      <div class="col product">
+        <div class="card shadow p-3">
+        <img type="button" src="./assets/new-window.png" class="view-details"></img>
+          <img src="${image}" class="card-img-top rounded" alt="${craftsperson}" style="height:400px">
+          <div class="card-body">
+            <h5 class="card-title">${productName}</h5>
+            <p class="card-text">${description}</p>
+            <div class="product-info">
+              <button type="button" class="add-to-cart btn btn-outline-secondary btn-lg">Add Product</button>
+              <h4>$${price}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
     `;
 
+    const viewDetailsButton = card.querySelector(".view-details");
+    const addToCartButton = card.querySelector(".add-to-cart");
+
+    viewDetailsButton.addEventListener("click", () => {
+      const popup = createPopup(product);
+      document.body.appendChild(popup);
+      popup.style.display = "block";
+    });
+
+    addToCartButton.addEventListener("click", () => {
+      addToCart(product); // Call the addToCart function with the current product
+    });
+
     return card;
+  }
+
+  function createPopup(product) {
+    const popup = document.createElement("div");
+    popup.className = "product-popup container";
+    const { productName, price, craftsperson, image, description } = product;
+    popup.innerHTML = `
+      <div class="popup-content card mb-3  row">
+     <div class = "col popup-image">
+     <img src="${image}" alt="${craftsperson}">
+     </div>
+      <div class="popup-info col">
+      <h2 class="popup-title">${productName}</h2>
+      <p class="card-title">Brand: ${craftsperson}</p>
+      <p class="popup-text">Description: ${description}</p>
+      <h4>Price: $${price}</h4>
+      <button type="button" class="add-to-cart btn btn-outline-primary btn-lg">Add to Cart</button>
+      <button type="button" class="close-popup btn-close btn-lg"></button>
+      </div>
+      </div>
+    `;
+
+    const closePopupButton = popup.querySelector(".close-popup");
+    closePopupButton.addEventListener("click", () => {
+      popup.style.display = "none";
+      document.body.classList.remove("body-no-scroll"); // Remove the class to re-enable scrolling
+
+      // Show the cards container again
+      container.classList.remove("card-hidden");
+    });
+
+    const addToCartButton = popup.querySelector(".add-to-cart");
+    addToCartButton.addEventListener("click", () => {
+      addToCart(product);
+    });
+
+    // Hide the cards container
+    container.classList.add("card-hidden");
+    document.body.classList.add("body-no-scroll");
+
+    return popup;
   }
 
   function clearCard() {
     container.innerHTML = "";
   }
-
-  let currentData = [...data];
-  let currentFilter = null;
 
   function displayCards(products) {
     clearCard();
@@ -47,16 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
       container.appendChild(card);
     });
   }
-
-  sortButton.addEventListener("click", () => {
-    currentData = sortByName(currentData);
-    displayFilteredOrAllData();
-  });
-
-  sortPrice.addEventListener("click", () => {
-    currentData = sortByPrice(currentData);
-    displayFilteredOrAllData();
-  });
 
   categoryFilter.addEventListener("click", handleCategoryFilter);
 
@@ -107,22 +153,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayFilteredOrAllData() {
+    let filteredData = currentData;
+
     if (currentFilter) {
-      displayCards(filterByCategory(currentData, currentFilter));
-    } else {
-      displayCards(currentData);
+      filteredData = filterByCategory(currentData, currentFilter);
     }
+
+    if (searchQuery) {
+      filteredData = filteredData.filter((product) =>
+        product.productName.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    displayCards(filteredData);
   }
- 
+
   sortButton.addEventListener("click", () => {
-    toggleSort(sortByName, sortButton);
+    currentData = sortByName(currentData, true); // Assuming ascending by default
+    displayFilteredOrAllData();
   });
-  
+
   sortPrice.addEventListener("click", () => {
-    toggleSort(sortByPrice, sortPrice);
+    currentData = sortByPrice(currentData, true); // Assuming ascending by default
+    displayFilteredOrAllData();
   });
-  
+
+  categoryFilter.addEventListener("click", handleCategoryFilter);
+
   createCategoryFilters();
   displayCards(data);
   setupSearch();
+  getRandomProducts();
 });
