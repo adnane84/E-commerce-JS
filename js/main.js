@@ -3,7 +3,11 @@ import { navbar, createNavbar } from "./navbar.js";
 import { sortByName, sortByPrice } from "./sorting.js";
 import { getUniqueCategories, filterByCategory } from "./filter.js";
 import { setupSearch } from "./search.js";
-import { addToCart, getRandomProducts } from "./cart.js";
+import { addToCart, getRandomProducts, cartItems } from "./cart.js";
+import { scrollTo } from "./scroll.js";
+import { signUp, signIn, clearFormInputs } from "./account.js";
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("products-container");
@@ -180,6 +184,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   categoryFilter.addEventListener("click", handleCategoryFilter);
 
+  // Function to initialize the cart with items from local storage
+  function initializeCartFromLocalStorage() {
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (storedCartItems) {
+      cartItems.length = 0;
+      cartItems.push(...storedCartItems);
+      // Call other functions to update the cart display and perform other tasks.
+    }
+  };
+
+  // Add event listeners for sign-up and sign-in buttons
+document.getElementById('signup-button').addEventListener('click', signUp);
+document.getElementById('signin-button').addEventListener('click', signIn);
+
+// Clear form inputs when the page loads
+window.onload = function() {
+  clearFormInputs();
+};
+  
+  // Initialize the cart from local storage when the page loads
+  initializeCartFromLocalStorage();
   createCategoryFilters();
   displayCards(data);
   setupSearch();
