@@ -13,6 +13,8 @@ export function addToCart(product) {
 
   updateCart(); // Update the cart display
   updateCartIconDigit(); // Update the cart icon digit
+   // Save the updated cartItems array to local storage
+   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
 // Function to increment item quantity
@@ -25,6 +27,8 @@ export function incrementQuantity(product) {
   }
   updateCart();
   updateCartIconDigit();
+   // Save the updated cartItems array to local storage
+   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
 // Function to decrement item quantity
@@ -40,6 +44,8 @@ export function decrementQuantity(product) {
     }
     updateCart();
     updateCartIconDigit();
+     // Save the updated cartItems array to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 }
 
@@ -147,6 +153,8 @@ export function removeItemFromCart(product) {
     cartItems.splice(itemIndex, 1);
     updateCart();
     updateCartIconDigit();
+     // Save the updated cartItems array to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 }
 
@@ -209,6 +217,17 @@ export function getRandomProducts() {
 
   return randomProducts;
 }
+
+// Initialize the cart with items from local storage when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (storedCartItems) {
+    cartItems.length = 0;
+    cartItems.push(...storedCartItems);
+    updateCart();
+    updateCartIconDigit();
+  }
+});
 
 // Function to display two random products
 export function displayRandomProducts() {
