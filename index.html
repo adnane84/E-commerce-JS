@@ -18,6 +18,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rosario:ital,wght@0,300;1,300&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- scrolling using JS AOS library -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -35,10 +39,10 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul id="navbar-list" class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
             style="--bs-scroll-height: 100px;"></ul>
-       <div class="cart-container" id="cart-container">
-  <ion-icon id="cartIcon" name="cart-outline" class="cart" size="large"></ion-icon>
-  <span class="digit-icon">0</span> <!-- This will display the quantity of items in the cart -->
-</div>
+          <div class="cart-container" id="cart-container">
+            <ion-icon id="cartIcon" name="cart-outline" class="cart" size="large"></ion-icon>
+            <span class="digit-icon"></span> <!-- This will display the quantity of items in the cart -->
+          </div>
         </div>
       </div>
     </nav>
@@ -52,7 +56,7 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"
           class=""></button>
       </div>
-      <div class="carousel-inner">
+      <div class="carousel-inner"   data-aos="fade-top">
         <div class="carousel-item active">
           <img src="./assets/header1.jpeg" style="height: 800px" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
@@ -96,10 +100,10 @@
           <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-6">
               <div class="row">
-                <div class="col-lg-12 col-md-12 mt-4 pt-2">
+                <div class="col-lg-12 col-md-12 mt-4 pt-2" data-aos="fade-left">
                   <div class="card work-desk border-0 shadow-lg overflow-hidden"
                     style="border-top-left-radius: 200px; border-top-right-radius: 200px">
-                    <img src="./assets/header9.JPG" class="img-fluid" alt="Image" />
+                    <img src="./assets/header9.JPG" class="img-fluid" alt="Image"/>
                     <div class="img-overlay bg-dark"></div>
                   </div>
                 </div>
@@ -117,20 +121,20 @@
             </div>
             <!--end col-->
 
-            <div class="col-lg-6 col-md-6 col-6">
+            <div class="col-lg-6 col-md-6 col-6" data-aos="fade-right">
               <div class="row">
                 <div class="col-lg-12 col-md-12">
                   <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                    <img src="./assets/header10.JPG" class="img-fluid" alt="Image" />
+                    <img src="./assets/header10.JPG" class="img-fluid" alt="Image"/>
                     <div class="img-overlay bg-dark"></div>
                   </div>
                 </div>
                 <!--end col-->
 
-                <div class="col-lg-12 col-md-12 mt-4 pt-2">
+                <div class="col-lg-12 col-md-12 mt-4 pt-2"   data-aos="fade-down">
                   <div class="card work-desk border-0 shadow-lg overflow-hidden"
                     style="border-top-left-radius: 50px; border-top-right-radius: 50px">
-                    <img src="./assets/header3.JPG" class="img-fluid" style="height: 500px;" alt="Image" />
+                    <img src="./assets/header3.JPG" class="img-fluid" style="height: 500px;" alt="Image"/>
                     <div class="img-overlay bg-dark"></div>
                   </div>
                 </div>
@@ -146,6 +150,7 @@
 
         <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
           <div class="section-title ml-lg-5">
+          <div class="about-text" data-aos="fade-left">
             <h5 class="text-custom mb-3">Moroccan Craft Odyssey</h5>
             <h4 class="title mb-4">
               Moroccan Arts and Handmade:
@@ -154,30 +159,31 @@
             <p class="text-muted">Embark on a Moroccan craft odyssey, where artistic mastery and cultural heritage
               converge in exquisite handmade treasures. From intricate mosaics to intricate textiles, immerse yourself
               in the essence of Morocco's artisanal excellence.</p>
+          </div>
 
             <div class="row">
-              <div class="col-lg-6 btn-links mt-4 pt-2">
+              <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-down-right">
                 <div class="media align-items-center shadow p-4" style="border-top-right-radius: 200px;
                 border-bottom-left-radius: 200px; background-color: hsla(198,32%,71%,1);">
                   <i class="fa fa-play h4 mb-0 text-custom"></i>
                   <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Responsive</a></h6>
                 </div>
               </div>
-              <div class="col-lg-6 btn-links mt-4 pt-2">
+              <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-down-left">
                 <div class="media align-items-center shadow p-4" style="border-bottom-right-radius: 200px;
                 border-top-left-radius: 200px; background-color: hsla(13,73%,62%,1);">
                   <i class="fa fa-file-download h4 mb-0 text-custom"></i>
                   <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Free Download</a></h6>
                 </div>
               </div>
-              <div class="col-lg-6 btn-links mt-4 pt-2">
+              <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-up-right">
                 <div class="media align-items-center shadow p-4" style="border-bottom-right-radius: 200px;
                 border-top-left-radius: 200px; background-color: hsla(231,17%,39%,1);">
                   <i class="fa fa-user h4 mb-0 text-custom"></i>
                   <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Support</a></h6>
                 </div>
               </div>
-              <div class="col-lg-6 btn-links mt-4 pt-2">
+              <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-up-left">
                 <div class="media align-items-center shadow p-4" style="border-top-right-radius: 200px;
                 border-bottom-left-radius: 200px; background-color: hsla(31, 17%, 44%, 1);">
                   <i class="fa fa-image h4 mb-0 text-custom"></i>
@@ -194,17 +200,60 @@
 
   </section>
 
+  <section id="services">
+    <div class="row gx-0 mb-5 mb-lg-0 justify-content-center" data-aos="fade-right">
+      <div class="col-lg-6"><img class="img-fluid custom-img" src="assets/arts7.jpg" alt="..." /></div>
+      <div class="col-lg-6">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="services-text my-auto text-center">
+              <h4>Elevate Your Space with Moroccan Decor Services</h4>
+              <p>Transform your home or business into a luxurious oasis with our Moroccan
+                decor services. Our team of expert designers and artisans specializes in bringing the rich, exotic
+                beauty of Morocco right to your doorstep. From intricately carved furniture to vibrant mosaic tiles, we
+                offer a wide range of authentic Moroccan elements that can be customized to suit your unique style and
+                preferences. Whether you're looking to revamp your entire space or simply add a touch of Moroccan flair,
+                our services are tailored to meet your needs, making your dream interior design a reality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Project Two Row-->
+    <div class="row gx-0 mb-5 mb-lg-0 justify-content-center" data-aos="fade-left">
+      <div class="col-lg-6"><img class="img-fluid custom-img" src="assets/arts4.jpg" alt="..." /></div>
+      <div class="col-lg-6 order-lg-first">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="services-text my-auto text-center">
+              <h4>Experience the Magic of Morocco with Our Decor Services</h4>
+              <p>Step into a world of enchantment and elegance with our Moroccan decor
+                services. Immerse yourself in the captivating allure of Moroccan culture through our carefully curated
+                selection of furnishings, textiles, and decorative accents. Our team is passionate about creating spaces
+                that tell a story, and we work closely with clients to ensure every element aligns with their vision.
+                Whether you're seeking a cozy Moroccan-inspired corner or a complete room makeover, our services promise
+                to transport you to the heart of Morocco, where tradition meets contemporary design. Let us help you
+                infuse your space with the warmth, colors, and mystique of Moroccan decor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="products" class="products">
     <div class="section-title">
-      <h5 class="">Elegance Redefined</h5>
-      <h4>Artisanal Moroccan Decor for Your Space</h4>
-      <p>Introduction: Immerse yourself in the allure of Morocco with our handcrafted décor collection. Elevate your
+      <h5 data-aos="fade-right">Elegance Redefined</h5>
+      <h4 data-aos="fade-left">Artisanal Moroccan Decor for Your Space</h4>
+      <p data-aos="fade-up">Introduction: Immerse yourself in the allure of Morocco with our handcrafted décor collection. Elevate your
         surroundings with the timeless beauty of traditional Moroccan artisanship, meticulously crafted to bring exotic
         elegance to your home.</p>
     </div>
 
     <!-- filtering categories -->
-    <div class="products-menu">
+    <div class="products-menu" data-aos="fade-up">
       <div class="dropdown">
         <button class="drop-btn btn btn-lg btn-primary dropdown-toggle">Sort</button>
         <div class="dropdown-content">
@@ -220,80 +269,210 @@
 
     <!-- products -->
 
-    <div id="products-container" class="row row-cols-1 row-cols-md-3 g-4">
+    <div id="products-container" class="row row-cols-1 row-cols-md-3 g-4" data-aos="fade-up">
     </div>
   </section>
 
-<section id="shopping-cart">
-  <div class="shopping-cart-title w-100 d-flex justify-content-between align-items-center p-4 mb-4 rounded">
-    <h3 class="mr-auto p-2">Shopping Cart</h3>
-    <button type="button" class="btn btn-outline-secondary btn-lg" id="go-back-button"><i class="fa fa-arrow-left"></i> Continue shopping</button>
-  </div>
-  <div class="shopping-cart">
-    <div class="container">
-      <div class="wrapper wrapper-content animated fadeInRight">
+  <section id="shopping-cart">
+    <div class="shopping-cart-title w-100 d-flex justify-content-between align-items-center p-4 mb-4 rounded">
+      <h3 class="mr-auto p-2">Shopping Cart</h3>
+      <button type="button" class="btn btn-outline-secondary btn-lg" id="go-back-button"><i
+          class="fa fa-arrow-left"></i> Continue shopping</button>
+    </div>
+    <div class="shopping-cart">
+      <div class="container">
+        <div class="wrapper wrapper-content animated fadeInRight">
           <div class="row">
-              <div class="col-md-9">
-                  <div class="ibox" id="cart-summary">
-                    <!-- cart items -->
-                  </div>
-                  <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
-      
+            <div class="col-md-9">
+              <div class="ibox" id="cart-summary">
+                <!-- cart items -->
               </div>
-              <div class="col-md-3">
-                  <div class="ibox">
-                      <div class="ibox-title">
-                          <h5>Cart Summary</h5>
-                      </div>
-                      <div class="ibox-content">
-                          <span>
-                              Total
-                          </span>
-                          <h2 class="font-bold cartTotal">
-                           
-                          </h2>
-      
-                          <hr>
-                          <span class="text-muted small">
-                              *For United States, France and Germany applicable sales tax will be applied
-                          </span>
-                          <div class="m-t-sm">
-                              <div class="btn-group">
-                              <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                              <a href="#" class="btn btn-white btn-sm"> Cancel</a>
-                              </div>
-                          </div>
-                      </div>
+              <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+
+            </div>
+            <div class="col-md-3">
+              <div class="ibox">
+                <div class="ibox-title">
+                  <h5>Cart Summary</h5>
+                </div>
+                <div class="ibox-content">
+                  <span>
+                    Total
+                  </span>
+                  <h2 class="font-bold cartTotal">
+
+                  </h2>
+
+                  <hr>
+                  <span class="text-muted small">
+                    *For United States, France and Germany applicable sales tax will be applied
+                  </span>
+                  <div class="m-t-sm">
+                    <div class="btn-group">
+                      <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                    </div>
                   </div>
-      
-                  <div class="ibox">
-                      <div class="ibox-title">
-                          <h5>Support</h5>
-                      </div>
-                      <div class="ibox-content text-center">
-                          <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
-                          <span class="small">
-                              Please contact with us if you have any questions. We are available 24h.
-                          </span>
-                      </div>
-                  </div>
-      
-                  <div class="ibox">
-                      <div class="ibox-content">
-      
-                          <p class="font-bold">
-                          Other products you may be interested
-                          </p>
-                          <hr>
-                          <div id="random-product"></div>
-                  </div>
+                </div>
               </div>
+
+              <div class="ibox">
+                <div class="ibox-title">
+                  <h5>Support</h5>
+                </div>
+                <div class="ibox-content text-center">
+                  <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                  <span class="small">
+                    Please contact with us if you have any questions. We are available 24h.
+                  </span>
+                </div>
+              </div>
+
+              <div class="ibox">
+                <div class="ibox-content">
+
+                  <p class="font-bold">
+                    Other products you may be interested
+                  </p>
+                  <hr>
+                  <div id="random-product"></div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
       </div>
-      </div>
- 
-  </div>
+  </section>
+
+<section id="sign-form">
+  <h1>Sign Up</h1>
+  <form id="signup-form">
+    <div class="alert-message-up"></div>
+      <label for="signup-username">Username or Email:</label>
+      <input type="text" id="signup-username" pattern="[a-zA-Z0-9]+" required><br><br>
+      
+      <label for="signup-name">Name:</label>
+      <input type="text" id="signup-name" required><br><br>
+      
+      <label for="signup-password">Password:</label>
+      <input type="password" id="signup-password" required><br><br>
+      
+      <label for="signup-confirm-password">Confirm Password:</label>
+      <input type="password" id="signup-confirm-password" required><br><br>
+      
+      <button type="button" id="signup-button">Sign Up</button>
+  </form>
+
+  <hr>
+
+  <h1>Sign In</h1>
+  <form id="signin-form">
+    <div class="alert-message-in"></div>
+      <label for="signin-username">Username or Email:</label>
+      <input type="text" id="signin-username" required><br><br>
+      
+      <label for="signin-password">Password:</label>
+      <input type="password" id="signin-password" required><br><br>
+      
+      <button type="button" id="signin-button">Sign In</button>
+  </form>
+
+   
 </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h5  data-aos="fade-right">Contact</h5>
+        <p  data-aos="fade-left">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+          in iste officiis commodi quidem hic quas.</p>
+      </div>
+    </div>
+
+    <div data-aos="fade-up">
+      <iframe style="border:0; width: 100%; height: 350px;"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27294.17967558544!2d-71.08852407769086!3d42.32963796861134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a0de7e77a4b%3A0x2f033fd6c495d564!2sMuseum%20of%20Fine%20Arts%2C%20Boston!5e0!3m2!1sen!2sus!4v1694122259532!5m2!1sen!2sus"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="container">
+
+      <div class="row mt-5">
+
+        <div class="col-lg-4">
+          <div class="info">
+            <div class="address"  data-aos="fade-right">
+              <ion-icon name="location" style="zoom:2.0;"></ion-icon>
+              <h4>Location:</h4>
+              <p>Tremont St, Boston Common, MA 02108</p>
+            </div>
+
+            <div class="email"  data-aos="fade-right">
+              <ion-icon name="mail" style="zoom:2.0;"></ion-icon>
+              <h4>Email:</h4>
+              <p>info@example.com</p>
+            </div>
+
+            <div class="phone"  data-aos="fade-right">
+              <ion-icon name="call" style="zoom:2.0;"></ion-icon>
+              <h4>Call:</h4>
+              <p>+1 5589 55488 55s</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-8 mt-5 mt-lg-0"  data-aos="fade-left">
+
+          <form role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="my-3">
+            </div>
+            <button class="button-89" role="button">Send a message</button>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+  <footer id="footer">
+    <div class="container">
+      <a href="#" class="logo navbar-brand" data-aos="fade-up">Double A</a>
+      <p  data-aos="fade-up">Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div class="social-links" data-aos="fade-down">
+        <a href="#" class="twitter"><i class="bi bi-youtube"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bi bi-tiktok"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+     <div class="footer-copyright" data-aos="fade-up">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Double A</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://github.com/adnane84">A.Adnane</a>
+      </div>
+    </div>
+     </div>
+  </footer><!-- End Footer -->
 
   <script type="module" src="./js/main.js"></script>
 </body>
