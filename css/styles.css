@@ -18,6 +18,7 @@
   --mrc-brown: hsla(19, 79%, 31%, 1);
   --white: hsla(0, 0%, 100%, 1);
   --black: hsla(0, 0%, 0%, 1);
+  --coin-silver: hsla(0, 0%, 75%, 1);
 
   /* typography */
 
@@ -162,23 +163,31 @@ body {
   display: inline-block;
 }
 
-.cart-logo.nav-item {
-  margin-left: 40px;
+.cart-container {
+  display: flex;
+  margin-right: 80px;
 }
 
 ion-icon {
-  color: var(--mrc-blue);
+  color: var(--mrc-gray);
+}
+
+.cart {
+  position: absolute;
 }
 
 .digit-icon {
-  background-color: var(--mrc-brown);
-  color: var(--white);
+  color: var(--mrc-gray);
   border-radius: 50%;
   padding: 5px;
   width: 30px;
   height: 30px;
   text-align: center;
+  position: relative;
+  top: -17px;
+  left: 25px;
 }
+
 
 /* Underline base */
 .nav-item::before {
@@ -426,7 +435,7 @@ ion-icon {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 60px auto;
 }
 
 #products-container {
@@ -773,4 +782,176 @@ ion-icon {
 
 #shopping-cart {
   display: none;
+}
+
+/* Services section */
+
+#services {
+ width: 90%;
+ margin: 100px auto;
+ padding: 50px;
+}
+
+.custom-img {
+  height: 500px;
+  width: 100%; 
+}
+
+.services-text {
+  margin: 0 30px;
+  color: var(--coin-silver);
+}
+
+.services-text h4 {
+  margin-bottom: 30px;
+  font-size: var(--fs-2);
+  font-weight: var(--fw-400);
+  font-family: var(--ff-vibes);
+}
+
+.services-text p {
+  margin-bottom: 30px;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
+  font-family: var(--ff-merriweather);
+}
+
+/* Contact */
+
+.contact .info {
+  width: 100%;
+  background: #fff;
+}
+
+.contact .info ion-icon {
+  float: left;
+  line-height: 1;
+}
+
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-family: var(--ff-merriweather);
+  font-weight: var(--fw-600);
+  margin-bottom: 5px;
+  color: var(--mrc-gray);
+}
+
+.contact .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #5b5b5b;
+  font-family: var(--ff-merriweather);
+}
+
+.contact .info .email,
+.contact .info .phone {
+  margin-top: 40px;
+}
+
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--mrc-blue);
+  color: var(--mrc-brown);
+}
+
+.contact .php-email-form input {
+  height: 44px;
+}
+
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+  margin-bottom: 40px;
+}
+
+/* Footer */
+
+#footer {
+  background: #0f0f0f;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 80px;
+}
+
+#footer p {
+  font-size: 15;
+  font-style: var(--ff-merriweather);
+  font-weight: 200;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+#footer .social-links {
+  margin: 0 0 40px 0;
+}
+
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: var(--coin-silver);
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+  background: var(--mrc-brown);
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer .copyright {
+  margin: 0 0 5px 0;
+}
+
+#footer .credits {
+  font-size: 13px;
+}
+
+#footer .credits a {
+  color: var(--mrc-brown);
+  font-size: var(--fs-4);
+  transition: 0.3s;
+  font-family: var(--ff-vibes);
+}
+
+#footer .credits a:hover {
+  color: var(--coin-silver);
 }
