@@ -56,7 +56,7 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"
           class=""></button>
       </div>
-      <div class="carousel-inner"   data-aos="fade-top">
+      <div class="carousel-inner" data-aos="fade-top">
         <div class="carousel-item active">
           <img src="./assets/header1.jpeg" style="height: 800px" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
@@ -103,7 +103,7 @@
                 <div class="col-lg-12 col-md-12 mt-4 pt-2" data-aos="fade-left">
                   <div class="card work-desk border-0 shadow-lg overflow-hidden"
                     style="border-top-left-radius: 200px; border-top-right-radius: 200px">
-                    <img src="./assets/header9.JPG" class="img-fluid" alt="Image"/>
+                    <img src="./assets/header9.JPG" class="img-fluid" alt="Image" />
                     <div class="img-overlay bg-dark"></div>
                   </div>
                 </div>
@@ -125,16 +125,16 @@
               <div class="row">
                 <div class="col-lg-12 col-md-12">
                   <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                    <img src="./assets/header10.JPG" class="img-fluid" alt="Image"/>
+                    <img src="./assets/header10.JPG" class="img-fluid" alt="Image" />
                     <div class="img-overlay bg-dark"></div>
                   </div>
                 </div>
                 <!--end col-->
 
-                <div class="col-lg-12 col-md-12 mt-4 pt-2"   data-aos="fade-down">
+                <div class="col-lg-12 col-md-12 mt-4 pt-2" data-aos="fade-down">
                   <div class="card work-desk border-0 shadow-lg overflow-hidden"
                     style="border-top-left-radius: 50px; border-top-right-radius: 50px">
-                    <img src="./assets/header3.JPG" class="img-fluid" style="height: 500px;" alt="Image"/>
+                    <img src="./assets/header3.JPG" class="img-fluid" style="height: 500px;" alt="Image" />
                     <div class="img-overlay bg-dark"></div>
                   </div>
                 </div>
@@ -150,16 +150,16 @@
 
         <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
           <div class="section-title ml-lg-5">
-          <div class="about-text" data-aos="fade-left">
-            <h5 class="text-custom mb-3">Moroccan Craft Odyssey</h5>
-            <h4 class="title mb-4">
-              Moroccan Arts and Handmade:
-              A Colorful Tapestry of Craftsmanship.
-            </h4>
-            <p class="text-muted">Embark on a Moroccan craft odyssey, where artistic mastery and cultural heritage
-              converge in exquisite handmade treasures. From intricate mosaics to intricate textiles, immerse yourself
-              in the essence of Morocco's artisanal excellence.</p>
-          </div>
+            <div class="about-text" data-aos="fade-left">
+              <h5 class="text-custom mb-3">Moroccan Craft Odyssey</h5>
+              <h4 class="title mb-4">
+                Moroccan Arts and Handmade:
+                A Colorful Tapestry of Craftsmanship.
+              </h4>
+              <p class="text-muted">Embark on a Moroccan craft odyssey, where artistic mastery and cultural heritage
+                converge in exquisite handmade treasures. From intricate mosaics to intricate textiles, immerse yourself
+                in the essence of Morocco's artisanal excellence.</p>
+            </div>
 
             <div class="row">
               <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-down-right">
@@ -247,7 +247,8 @@
     <div class="section-title">
       <h5 data-aos="fade-right">Elegance Redefined</h5>
       <h4 data-aos="fade-left">Artisanal Moroccan Decor for Your Space</h4>
-      <p data-aos="fade-up">Introduction: Immerse yourself in the allure of Morocco with our handcrafted décor collection. Elevate your
+      <p data-aos="fade-up">Introduction: Immerse yourself in the allure of Morocco with our handcrafted décor
+        collection. Elevate your
         surroundings with the timeless beauty of traditional Moroccan artisanship, meticulously crafted to bring exotic
         elegance to your home.</p>
     </div>
@@ -287,7 +288,8 @@
               <div class="ibox" id="cart-summary">
                 <!-- cart items -->
               </div>
-              <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+              <button class="btn btn-primary pull-right" id="checkoutButton"><i class="fa fa fa-shopping-cart"></i>
+                Checkout</button>
 
             </div>
             <div class="col-md-3">
@@ -297,12 +299,12 @@
                 </div>
                 <div class="ibox-content">
                   <span>
-                    Total
+                    Subtotal
                   </span>
-                  <h2 class="font-bold cartTotal">
-
-                  </h2>
-
+                  <h2 class="font-bold cartTotal"> </h2>
+                  <h2 class="font-bold tax"></h2>
+                  <h2 class="font-bold shipping-fee"></h2>
+                  <h2 class="total"></h2>
                   <hr>
                   <span class="text-muted small">
                     *For United States, France and Germany applicable sales tax will be applied
@@ -310,6 +312,15 @@
                   <div class="m-t-sm">
                     <div class="btn-group">
                       <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                    </div>
+                    <div id="shippingSection" style="display: none;">
+                      <!-- Shipping Form -->
+                      <h3>Shipping Information</h3>
+                      <!-- Add your shipping form fields here (e.g., name, address, etc.) -->
+
+                      <!-- Shipping Fee Component -->
+                      <h3>Shipping Fee</h3>
+                      <p id="shippingFee">Shipping fee will be calculated here.</p>
                     </div>
                   </div>
                 </div>
@@ -342,49 +353,47 @@
         </div>
 
       </div>
+
+    </div>
+    <div class="container mt-5">
+      <form>
+        <div class="form-group">
+          <label for="credit-card">Enter 16-digit number:</label>
+          <input type="text" class="form-control" id="credit-card" name="credit-card" placeholder="0000-0000-0000-0000"
+            oninput="formatCreditCard()" maxlength="20">
+        </div>
+
+        <div class="form-group">
+          <label for="card-expiration">Expiration Date:</label>
+          <input type="text" class="form-control" id="card-expiration" placeholder="MM/YY" required
+            oninput="validateExpiration()">
+          <span class="expiration-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="card-cvv">CVV:</label>
+          <input type="text" class="form-control" id="card-cvv" placeholder="***" required oninput="validateCVV()">
+          <span class="cvv-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="card-holder">Cardholder Name:</label>
+          <input type="text" class="form-control" id="card-holder" placeholder="John Doe" required
+            oninput="validateCardHolder()">
+          <span class="card-holder-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
   </section>
-
-<section id="sign-form">
-  <h1>Sign Up</h1>
-  <form id="signup-form">
-    <div class="alert-message-up"></div>
-      <label for="signup-username">Username or Email:</label>
-      <input type="text" id="signup-username" pattern="[a-zA-Z0-9]+" required><br><br>
-      
-      <label for="signup-name">Name:</label>
-      <input type="text" id="signup-name" required><br><br>
-      
-      <label for="signup-password">Password:</label>
-      <input type="password" id="signup-password" required><br><br>
-      
-      <label for="signup-confirm-password">Confirm Password:</label>
-      <input type="password" id="signup-confirm-password" required><br><br>
-      
-      <button type="button" id="signup-button">Sign Up</button>
-  </form>
-
-  <hr>
-
-  <h1>Sign In</h1>
-  <form id="signin-form">
-    <div class="alert-message-in"></div>
-      <label for="signin-username">Username or Email:</label>
-      <input type="text" id="signin-username" required><br><br>
-      
-      <label for="signin-password">Password:</label>
-      <input type="password" id="signin-password" required><br><br>
-      
-      <button type="button" id="signin-button">Sign In</button>
-  </form>
-
-   
-</section>
 
   <section id="contact" class="contact">
     <div class="container">
       <div class="section-title">
-        <h5  data-aos="fade-right">Contact</h5>
-        <p  data-aos="fade-left">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+        <h5 data-aos="fade-right">Contact</h5>
+        <p data-aos="fade-left">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
+          quidem. Sit sint
           consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
           in iste officiis commodi quidem hic quas.</p>
       </div>
@@ -402,19 +411,19 @@
 
         <div class="col-lg-4">
           <div class="info">
-            <div class="address"  data-aos="fade-right">
+            <div class="address" data-aos="fade-right">
               <ion-icon name="location" style="zoom:2.0;"></ion-icon>
               <h4>Location:</h4>
               <p>Tremont St, Boston Common, MA 02108</p>
             </div>
 
-            <div class="email"  data-aos="fade-right">
+            <div class="email" data-aos="fade-right">
               <ion-icon name="mail" style="zoom:2.0;"></ion-icon>
               <h4>Email:</h4>
               <p>info@example.com</p>
             </div>
 
-            <div class="phone"  data-aos="fade-right">
+            <div class="phone" data-aos="fade-right">
               <ion-icon name="call" style="zoom:2.0;"></ion-icon>
               <h4>Call:</h4>
               <p>+1 5589 55488 55s</p>
@@ -423,7 +432,7 @@
 
         </div>
 
-        <div class="col-lg-8 mt-5 mt-lg-0"  data-aos="fade-left">
+        <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
           <form role="form" class="php-email-form">
             <div class="row">
@@ -455,7 +464,8 @@
   <footer id="footer">
     <div class="container">
       <a href="#" class="logo navbar-brand" data-aos="fade-up">Double A</a>
-      <p  data-aos="fade-up">Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p data-aos="fade-up">Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe
+        commodi placeat.</p>
       <div class="social-links" data-aos="fade-down">
         <a href="#" class="twitter"><i class="bi bi-youtube"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -463,15 +473,15 @@
         <a href="#" class="google-plus"><i class="bi bi-tiktok"></i></a>
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
-     <div class="footer-copyright" data-aos="fade-up">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Double A</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="https://github.com/adnane84">A.Adnane</a>
+      <div class="footer-copyright" data-aos="fade-up">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Double A</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://github.com/adnane84">A.Adnane</a>
+        </div>
       </div>
     </div>
-     </div>
   </footer><!-- End Footer -->
 
   <script type="module" src="./js/main.js"></script>
