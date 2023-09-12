@@ -5,7 +5,7 @@ import { getUniqueCategories, filterByCategory } from "./filter.js";
 import { setupSearch } from "./search.js";
 import { addToCart, getRandomProducts, cartItems } from "./cart.js";
 import { scrollTo } from "./scroll.js";
-import { signUp, signIn, clearFormInputs } from "./account.js";
+
 
 
 
@@ -194,14 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Add event listeners for sign-up and sign-in buttons
-document.getElementById('signup-button').addEventListener('click', signUp);
-document.getElementById('signin-button').addEventListener('click', signIn);
-
-// Clear form inputs when the page loads
-window.onload = function() {
-  clearFormInputs();
-};
   
   // Initialize the cart from local storage when the page loads
   initializeCartFromLocalStorage();
