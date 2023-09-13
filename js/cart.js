@@ -1,4 +1,8 @@
 import { data } from "./data.js";
+import { formatCreditCard, validateCVV, validateExpiration, validateCardHolder, togglePaymentForm, toggleShippingForm } from "./creditCard.js";
+import { populateStateSelect} from "./shipping.js"; // Replace the path with the actual path to your stateSelect.js file
+
+
 export const cartItems = [];
 
 // Function to add a product to the cart
@@ -14,8 +18,8 @@ export function addToCart(product) {
   updateCart(); // Update the cart display
   updateCartIconDigit(); // Update the cart icon digit
   updateTaxAndShippingElements();
-  // Save the updated cartItems array to local storage
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+   // Save the updated cartItems array to local storage
+   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
 // Function to increment item quantity
@@ -29,8 +33,8 @@ export function incrementQuantity(product) {
   updateCart();
   updateCartIconDigit();
   updateTaxAndShippingElements();
-  // Save the updated cartItems array to local storage
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+   // Save the updated cartItems array to local storage
+   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
 // Function to decrement item quantity
@@ -47,8 +51,8 @@ export function decrementQuantity(product) {
     updateCart();
     updateCartIconDigit();
     updateTaxAndShippingElements();
-    // Save the updated cartItems array to local storage
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+     // Save the updated cartItems array to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 }
 
@@ -157,8 +161,8 @@ export function removeItemFromCart(product) {
     cartItems.splice(itemIndex, 1);
     updateCart();
     updateCartIconDigit();
-    // Save the updated cartItems array to local storage
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+     // Save the updated cartItems array to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 }
 
@@ -279,19 +283,19 @@ displayRandomProducts();
 
 // Function to calculate tax and shipping fee based on subtotal
 function calculateTax(subtotal) {
-  const taxRate = 0.1; // 10% tax rate
+  const taxRate = 0.10; // 10% tax rate
   const tax = subtotal * taxRate;
   return tax;
 }
 
 export function updateTaxAndShippingElements() {
-  const subtotalElement = document.querySelector(".cartTotal");
-  const taxElement = document.querySelector(".tax");
-  const shippingFeeElement = document.querySelector(".shipping-fee");
-  const totalElement = document.querySelector(".total");
-
+  const subtotalElement = document.querySelector('.cartTotal');
+  const taxElement = document.querySelector('.tax');
+  const shippingFeeElement = document.querySelector('.shipping-fee');
+  const totalElement = document.querySelector('.total');
+  
   const shipping = 14.99;
-  const subtotal = parseFloat(subtotalElement.innerText.replace("$", ""));
+  const subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
   const tax = calculateTax(subtotal);
 
   if (subtotal > 0) {
@@ -300,18 +304,36 @@ export function updateTaxAndShippingElements() {
     } else {
       shippingFeeElement.innerHTML = `<p class="shipping">Free shipping</p>`;
     }
-
+    
     taxElement.textContent = `Tax: $${tax.toFixed(2)}`;
     // Only add shipping fee to the total if it's not free
     const total = subtotal + (subtotal < 500 ? shipping : 0);
     totalElement.textContent = `$${(total + tax).toFixed(2)}`;
   } else {
-    shippingFeeElement.textContent = "";
-    totalElement.textContent = "";
-    taxElement.textContent = "";
-    subtotalElement.innerHTML = "<h4>Your cart is empty!</h4>";
+    shippingFeeElement.textContent = '';
+    totalElement.textContent = '';
+    taxElement.textContent = '';
+    subtotalElement.innerHTML = '<h4>Your cart is empty!</h4>';
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const creditCardInput = document.getElementById("credit-card");
+  const expirationInput = document.getElementById("card-expiration");
+  const cvvInput = document.getElementById("card-cvv");
+  const cardHolderInput = document.getElementById("card-holder");
+
+  // Add event listeners
+  creditCardInput.addEventListener("input", formatCreditCard);
+  expirationInput.addEventListener("input", validateExpiration);
+  cvvInput.addEventListener("input", validateCVV);
+  cardHolderInput.addEventListener("input", validateCardHolder);
+});
+
 // Call the updateTaxAndShippingElements function when the page loads and whenever the cart is updated
-document.addEventListener("DOMContentLoaded", updateTaxAndShippingElements);
+document.addEventListener('DOMContentLoaded', updateTaxAndShippingElements);
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  populateStateSelect();
+});
