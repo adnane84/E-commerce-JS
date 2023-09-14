@@ -10,5 +10,4 @@ export function sortByPrice(products) {
   a.price - b.price
   )
   return sortedData;
-}
-
+};
