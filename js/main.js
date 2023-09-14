@@ -6,9 +6,6 @@ import { setupSearch } from "./search.js";
 import { addToCart, getRandomProducts, cartItems } from "./cart.js";
 import { scrollTo } from "./scroll.js";
 
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("products-container");
   const sortButton = document.getElementById("sortButton");
@@ -81,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("body-no-scroll"); // Remove the class to re-enable scrolling
 
       // Show the cards container again
-      container.classList.remove("card-hidden");
+      container.style = "opacity: 1";
     });
 
     const addToCartButton = popup.querySelector(".add-to-cart");
@@ -90,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Hide the cards container
-    container.classList.add("card-hidden");
+    container.style = "opacity: 0";
     document.body.classList.add("body-no-scroll");
 
     return popup;
@@ -192,9 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItems.push(...storedCartItems);
       // Call other functions to update the cart display and perform other tasks.
     }
-  };
+  }
 
-  
   // Initialize the cart from local storage when the page loads
   initializeCartFromLocalStorage();
   createCategoryFilters();
