@@ -1,3 +1,4 @@
+  import {toggleElementVisibility} from './creditCard.js';
 
   export function populateStateSelect()  {
   // Example of populating the select element with states
@@ -95,23 +96,32 @@
   });
   }
 
+  // Function to display a message when the "Submit" button is clicked
+export function displaySubmitMessage() {
+  const submitButton = document.getElementById("submit-shipping");
+  const successMessage = document.getElementById("shippingSuccessMessage");
 
-export function toggleShippingForm() {
-  if (togglePaymentForm()) {
-    // Add an event listener for a successful payment event
-document.addEventListener("DOMContentLoaded", () => {
-  // Replace this with the actual event and condition for a successful payment
-  // const successfulPayment = true; // Example: Set to true if payment is successful
-
-  const submitButton = document.getElementById("submit-button"); // Change "submit-button" to the actual ID of your submit button
-
-  submitButton.addEventListener("click", (e) => {
-    // if (successfulPayment) {
-    //   showShipmentForm(); // Call the showShipmentForm function when the payment is successful
-    // }
-    e.preventDefault();
-    console.log("hello")
+  submitButton.addEventListener("click", () => {
+    const shoppingMsg = document.createElement('div');
+    shoppingMsg.classList = "shipping-message";
+    shoppingMsg.style.display = "block";
+    shoppingMsg.innerHTML = `
+    <p>Shipping information submitted successfully!</p>
+    `;
+      
+    successMessage.appendChild(shoppingMsg);
+      // Optionally, you can clear the form fields after displaying the message
+      clearFormFields();
+      
   });
-});
-  }
 }
+
+// Function to clear form fields
+function clearFormFields() {
+ const shipping = document.querySelector('.shipping');
+ shipping.classList.add('hidden');
+ toggleElementVisibility("payment-form");
+}
+
+// Call the displaySubmitMessage function when the page loads
+document.addEventListener("DOMContentLoaded", displaySubmitMessage);
