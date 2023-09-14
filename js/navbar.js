@@ -7,27 +7,24 @@ export const navbar = [
   {
       "id": 2,
       "label": "About Us",
-      "link": "/about"
+      "link": "#about"
   },
   {
       "id": 3,
       "label": "Services",
-      "link": "/services",
+      "link": "#services",
   },
   {
       "id": 4,
       "label": "Products",
-      "link": "/products"
+      "link": "#post-category"
   },
   {
       "id": 5,
       "label": "Contact",
-      "link": "/contact"
+      "link": "#contact"
   }
 ]
-
-
-// navbar.js
 
 // navbar.js
 
@@ -45,6 +42,6 @@ export function createNavbar(navbarData) {
     listItem.appendChild(link);
     navbarContainer.appendChild(listItem);
   });
-}
+};
 
 createNavbar(navbar)
