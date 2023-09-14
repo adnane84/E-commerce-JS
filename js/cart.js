@@ -1,6 +1,6 @@
 import { data } from "./data.js";
-import { formatCreditCard, validateCVV, validateExpiration, validateCardHolder, togglePaymentForm, toggleShippingForm } from "./creditCard.js";
-import { populateStateSelect} from "./shipping.js"; // Replace the path with the actual path to your stateSelect.js file
+import { formatCreditCard, validateCVV, validateExpiration, validateCardHolder, validateAndShowShippingForm } from "./creditCard.js";
+import { populateStateSelect, displaySubmitMessage} from "./shipping.js"; // Replace the path with the actual path to your stateSelect.js file
 
 
 export const cartItems = [];
@@ -70,51 +70,45 @@ export function updateCart() {
     listItem.className = "ibox-content";
     listItem.innerHTML = `
     <div class="table-responsive">
-    <table class="table shoping-cart-table">
-        <tbody>
-        <tr>
-            <td width="90">
-                <div>
-                <img src="${image}" alt="${productName}"  class="cart-product-imitation">
-                </div>
-            </td>
-            <td class="desc">
-                <h3>
-                ${productName}
-                </h3>
-                <p>
-                Craftsperson: <em class="craft">${craftsperson}</em>
-                </p>
-                <p>
-                Category: <em class="category">${category}</em>
-                </p>
-            </td>
-            <td class="item-quantity">
-            <button class="increment-button" data-product='${JSON.stringify(
-              product
-            )}'>+</button>
-<span class="quantity">${item.quantity}</span>
-<button class="decrement-button" data-product='${JSON.stringify(
-      product
-    )}'>-</button>
-            </td>
-            <td>
-                <h4  class="cart-item-price">
-                $${product.price}
-                </h4>
-            </td>
-            <td>
-            <div class="m-t-sm">
-            <button class="delete-button text-muted" data-product='${JSON.stringify(
-              product
-            )}'>
-<img src="./assets/trash-fill.svg" alt="Delete">
-</button>
-        </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <table class="table table-bordered shoping-cart-table">
+    <tbody class="product-cart">
+      <tr>
+        <td style="height: 100px; width: 10%" class="align-middle">
+          <div class="d-flex justify-content-center align-items-center">
+            <img src="${image}" alt="${productName}" class="img-fluid">
+          </div>
+        </td>
+        <td class="desc" style="height: 100px; width: 60%">
+          <div class="product-details col-md-8 mt-4">
+            <h3>${productName}</h3>
+            <p>
+              Craftsperson: <em class="text-info craft">${craftsperson}</em>
+            </p>
+            <p>
+              Category: <em class="text-success category">${category}</em>
+            </p>
+          </div>
+        </td>
+        <td class="item-quantity align-middle">
+          <div class="d-flex justify-content-center align-items-center">
+            <button class="btn btn-outline-primary increment-button" data-product='${JSON.stringify(product)}' style="height: 30px;">+</button>
+            <span class="quantity form-control text-center">${item.quantity}</span>
+            <button class="btn btn-outline-primary decrement-button" data-product='${JSON.stringify(product)}' style="height: 30px;">-</button>
+          </div>
+        </td>
+        <td class="align-middle">
+          <h4 class="cart-item-price">$${product.price}</h4>
+        </td>
+        <td class="align-middle">
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-danger delete-button" data-product='${JSON.stringify(product)}'>
+              <img src="./assets/trash-fill.svg" alt="Delete">
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
     `;
 
@@ -266,10 +260,11 @@ export function displayRandomProducts() {
       <hr>
     `;
     const addToCartButton = productItem.querySelector(".add-to-cart");
+    const emptyCartMsg = document.getElementById("empty-cart-msg");
 
     addToCartButton.addEventListener("click", () => {
-      console.log("Add to cart button clicked");
       addToCart(productData);
+      emptyCartMsg.innerHTML = ``;
       updateTaxAndShippingElements();
     });
 
@@ -305,7 +300,7 @@ export function updateTaxAndShippingElements() {
       shippingFeeElement.innerHTML = `<p class="shipping">Free shipping</p>`;
     }
     
-    taxElement.textContent = `Tax: $${tax.toFixed(2)}`;
+    taxElement.textContent = `$${tax.toFixed(2)}`;
     // Only add shipping fee to the total if it's not free
     const total = subtotal + (subtotal < 500 ? shipping : 0);
     totalElement.textContent = `$${(total + tax).toFixed(2)}`;
