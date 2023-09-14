@@ -11,51 +11,54 @@
 
   <!-- Favicon (browser tab icon) -->
   <link rel="icon" href="./assets/arts3.jpg" type="image/x-icon">
-    
+
   <!-- Bootstrap JavaScript library with integrity and crossorigin attributes -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
   </script>
-  
+
   <!-- Ionicons JavaScript module with type attribute -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  
+
   <!-- Ionicons JavaScript for non-module environments -->
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  
+
   <!-- Bootstrap CSS stylesheet with integrity and crossorigin attributes -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  
+
   <!-- Preconnect link for Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+
   <!-- Google Fonts stylesheet for 'Great Vibes' font -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  
+
   <!-- Preconnect link for Google Fonts (again) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+
   <!-- Google Fonts stylesheet for multiple fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rosario:ital,wght@0,300;1,300&display=swap"
     rel="stylesheet">
-  
+
   <!-- Bootstrap Icons stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  
+
   <!-- JavaScript library for scroll animations (AOS) -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  
+
   <!-- Stylesheet for AOS animations -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  
+
   <!-- Custom stylesheet for the webpage -->
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 
 <body>
+
+  <!-- Header -->
+  
   <header class="header" data-header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-navbar>
       <div class="container-fluid d-flex">
@@ -67,7 +70,8 @@
           </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul id="navbar-list" class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;"></ul>
+          <ul id="navbar-list" class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style="--bs-scroll-height: 100px;"></ul>
           <div class="cart-container" id="cart-container">
             <ion-icon id="cartIcon" name="cart-outline" class="cart" size="large"></ion-icon>
             <!-- This will display the quantity of items in the cart -->
@@ -79,10 +83,12 @@
     <!-- Image slider -->
     <div id="carouselExampleCaptions" class="carousel slide">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active"
-          aria-current="true"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"
+          class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner" data-aos="fade-top">
         <div class="carousel-item active">
@@ -107,17 +113,20 @@
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
   </header>
-  
+
+  <!-- About -->
 
   <section id="about" class="about">
     <div class="container">
@@ -192,28 +201,28 @@
                 <div class="media align-items-center shadow p-4" style="border-top-right-radius: 200px;
                 border-bottom-left-radius: 200px; background-color: hsla(198,32%,71%,1);">
                   <i class="fa fa-play h4 mb-0 text-custom"></i>
-                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Responsive</a></h6>
+                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Cultural</a></h6>
                 </div>
               </div>
               <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-down-left">
                 <div class="media align-items-center shadow p-4" style="border-bottom-right-radius: 200px;
                 border-top-left-radius: 200px; background-color: hsla(13,73%,62%,1);">
                   <i class="fa fa-file-download h4 mb-0 text-custom"></i>
-                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Free Download</a></h6>
+                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Exquisite</a></h6>
                 </div>
               </div>
               <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-up-right">
                 <div class="media align-items-center shadow p-4" style="border-bottom-right-radius: 200px;
                 border-top-left-radius: 200px; background-color: hsla(231,17%,39%,1);">
                   <i class="fa fa-user h4 mb-0 text-custom"></i>
-                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Support</a></h6>
+                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Timeless</a></h6>
                 </div>
               </div>
               <div class="col-lg-6 btn-links mt-4 pt-2" data-aos="fade-up-left">
                 <div class="media align-items-center shadow p-4" style="border-top-right-radius: 200px;
                 border-bottom-left-radius: 200px; background-color: hsla(31, 17%, 44%, 1);">
                   <i class="fa fa-image h4 mb-0 text-custom"></i>
-                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Development</a></h6>
+                  <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-white">Intricate</a></h6>
                 </div>
               </div>
             </div>
@@ -226,6 +235,8 @@
 
   </section>
 
+  <!-- Services -->
+
   <section id="services">
     <div class="row gx-0 mb-5 mb-lg-0 justify-content-center" data-aos="fade-right">
       <div class="col-lg-6">
@@ -236,13 +247,18 @@
           <div class="d-flex h-100">
             <div class="services-text my-auto text-center">
               <h4>Elevate Your Space with Moroccan Decor Services</h4>
-              <p>Transform your home or business into a luxurious oasis with our Moroccan decor services. Our team of expert designers and artisans specializes in bringing the rich, exotic beauty of Morocco right to your doorstep. From intricately carved furniture to vibrant mosaic tiles, we offer a wide range of authentic Moroccan elements that can be customized to suit your unique style and preferences. Whether you're looking to revamp your entire space or simply add a touch of Moroccan flair, our services are tailored to meet your needs, making your dream interior design a reality.</p>
+              <p>Transform your home or business into a luxurious oasis with our Moroccan decor services. Our team of
+                expert designers and artisans specializes in bringing the rich, exotic beauty of Morocco right to your
+                doorstep. From intricately carved furniture to vibrant mosaic tiles, we offer a wide range of authentic
+                Moroccan elements that can be customized to suit your unique style and preferences. Whether you're
+                looking to revamp your entire space or simply add a touch of Moroccan flair, our services are tailored
+                to meet your needs, making your dream interior design a reality.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  
+
     <!-- Project Two Row -->
     <div class="row gx-0 mb-5 mb-lg-0 justify-content-center" data-aos="fade-left">
       <div class="col-lg-6">
@@ -253,32 +269,42 @@
           <div class="d-flex h-100">
             <div class="services-text my-auto text-center">
               <h4>Experience the Magic of Morocco with Our Decor Services</h4>
-              <p>Step into a world of enchantment and elegance with our Moroccan decor services. Immerse yourself in the captivating allure of Moroccan culture through our carefully curated selection of furnishings, textiles, and decorative accents. Our team is passionate about creating spaces that tell a story, and we work closely with clients to ensure every element aligns with their vision. Whether you're seeking a cozy Moroccan-inspired corner or a complete room makeover, our services promise to transport you to the heart of Morocco, where tradition meets contemporary design. Let us help you infuse your space with the warmth, colors, and mystique of Moroccan decor.</p>
+              <p>Step into a world of enchantment and elegance with our Moroccan decor services. Immerse yourself in the
+                captivating allure of Moroccan culture through our carefully curated selection of furnishings, textiles,
+                and decorative accents. Our team is passionate about creating spaces that tell a story, and we work
+                closely with clients to ensure every element aligns with their vision. Whether you're seeking a cozy
+                Moroccan-inspired corner or a complete room makeover, our services promise to transport you to the heart
+                of Morocco, where tradition meets contemporary design. Let us help you infuse your space with the
+                warmth, colors, and mystique of Moroccan decor.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- Products and Products popup -->
+
   <section id="products" class="products">
     <div class="section-title">
       <h5 class="mb-3" data-aos="fade-right">Elegance Redefined</h5>
       <h4 class="mb-4" data-aos="fade-left">Artisanal Moroccan Decor for Your Space</h4>
       <p class="mb-5" data-aos="fade-up">
         Introduction: Immerse yourself in the allure of Morocco with our handcrafted décor
-        collection. Elevate your surroundings with the timeless beauty of traditional Moroccan artisanship, meticulously crafted to bring exotic elegance to your home.
+        collection. Elevate your surroundings with the timeless beauty of traditional Moroccan artisanship, meticulously
+        crafted to bring exotic elegance to your home.
       </p>
-    </div>    
+    </div>
 
     <!-- filtering categories -->
+
     <div class="products-menu" data-aos="fade-up">
       <div class="dropdown">
-        <button class="drop-btn btn btn-lg btn-primary dropdown-toggle">Sort</button>
+        <button class="drop-btn btn btn-lg btn-primary dropdown-toggle">Sort and Search</button>
         <div class="dropdown-content">
-          <input type="search" class="form-label" placeholder=" Search..." id="searchBar" />
-          <button class="dropdown-item" id="sortButton">By Name</button>
-          <button class="dropdown-item" id="sortButtonPrice">By Price</button>
+          <input type="search" class="form-label" placeholder="Search" id="searchBar" />
+          <button class="dropdown-item" id="sortButton">&#9650; Name</button>
+          <button class="dropdown-item" id="sortButtonPrice">&#9660; Price</button>
         </div>
       </div>
       <ul class="tab-container" id="post-category"></ul>
@@ -290,6 +316,8 @@
     </div>
   </section>
 
+  <!-- Shopping Cart -->
+
   <section id="shopping-cart">
     <div class="shopping-cart-title w-100 d-flex justify-content-between align-items-center p-4 mb-4 rounded">
       <h3 class="mr-auto p-2">Shopping Cart</h3>
@@ -298,71 +326,63 @@
     </div>
     <div class="shopping-cart">
       <div class="container">
-        <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="wrapper wrapper-content">
           <div class="row">
             <div class="col-md-9">
               <div class="ibox" id="cart-summary">
-                <!-- cart items -->
+                <!-- Cart items will be dynamically added here by JavaScript -->
               </div>
               <div id="empty-cart-msg"></div>
-              <button class="btn btn-primary pull-right" id="checkoutButton"><i class="fa fa fa-shopping-cart"></i>
-                Checkout</button>
-
             </div>
             <div class="col-md-3">
               <div class="ibox">
                 <div class="ibox-title">
                   <h5>Cart Summary</h5>
                 </div>
-                <div class="ibox-content">
-                  <span>
-                    Subtotal
-                  </span>
-                  <h2 class="font-bold cartTotal"> </h2>
-                  <h2 class="font-bold tax"></h2>
-                  <h2 class="font-bold shipping-fee"></h2>
-                  <h2 class="total"></h2>
-                  <hr>
-                  <span class="text-muted small">
-                    *For United States, France and Germany applicable sales tax will be applied
-                  </span>
-                  <div class="m-t-sm">
-                    <div class="btn-group">
-                      <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                    </div>
-                    <div id="shippingSection" style="display: none;">
-                      <!-- Shipping Form -->
-                      <h3>Shipping Information</h3>
-                      <!-- Add your shipping form fields here (e.g., name, address, etc.) -->
-
-                      <!-- Shipping Fee Component -->
-                      <h3>Shipping Fee</h3>
-                      <p id="shippingFee">Shipping fee will be calculated here.</p>
-                    </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <p>Subtotal</p>
+                    <span class="cartTotal"></span>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <p>Shipping</p>
+                    <span id="shippingFee"></span>
+                    <span class="shipping-fee"></span>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <p>VAT<span>(10%)</span></p>
+                    <p><span class="tax"></span></p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <p class="fw-bold">Total</p>
+                    <p class="fw-bold"><span class="total"></span></p>
+                  </div>
+                  <div class="btn btn-primary mt-2 button-89" id="checkoutButton">Pay<span class="px-1 total"></span>
                   </div>
                 </div>
               </div>
-
+              <div class="col mt-5">
+                <div class="ibox">
+                  <div class="ibox-content">
+                    <p class="font-bold">
+                      Other products you may be interested
+                    </p>
+                    <hr>
+                    <div id="random-product"></div>
+                  </div>
+                </div>
+              </div>
               <div class="ibox">
                 <div class="ibox-title">
                   <h5>Support</h5>
                 </div>
                 <div class="ibox-content text-center">
-                  <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                  <h3>
+                    <ion-icon name="call" style="zoom:1.0;"></ion-icon> +1 800 4783 001
+                  </h3>
                   <span class="small">
                     Please contact with us if you have any questions. We are available 24h.
                   </span>
-                </div>
-              </div>
-
-              <div class="ibox">
-                <div class="ibox-content">
-
-                  <p class="font-bold">
-                    Other products you may be interested
-                  </p>
-                  <hr>
-                  <div id="random-product"></div>
                 </div>
               </div>
             </div>
@@ -370,6 +390,9 @@
         </div>
 
       </div>
+    </div>
+
+    </div>
     </div>
     <!-- Credit Card Form -->
     <div class="container mt-5">
@@ -398,13 +421,13 @@
           <span class="card-holder-error"></span>
         </div>
 
-        <button class="btn btn-primary" id="submit-button">Submit</button>
+        <button class="button-89" id="submit-button">Submit</button>
       </form>
     </div>
     <!-- Shipping Form -->
     <div class="container mt-5 shipping">
-      <h1 class="mb-4">Shipping Information</h1>
       <form class="hidden" id="shippingForm">
+        <h1 class="mb-4">Shipping Information</h1>
         <div class="form-group">
           <label for="firstName">First Name:</label>
           <input type="text" class="form-control" id="firstName" name="firstName" pattern="[A-Za-z]+" required>
@@ -436,34 +459,37 @@
           <input type="text" class="form-control" id="zipCode" name="zipCode" pattern="[0-9]{5}" required>
         </div>
 
-        <button type="button" class="btn btn-primary" id="submit-shipping">Submit</button>
+        <button type="button" class="button-89" id="submit-shipping">Submit</button>
       </form>
     </div>
     <!-- Container for the success message -->
     <div id="shippingSuccessMessage"></div>
   </section>
 
+  <!-- Contact -->
+
   <section id="contact" class="contact">
     <div class="container">
       <div class="section-title">
         <h5 data-aos="fade-right">Contact</h5>
-        <p data-aos="fade-left">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum
-          quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
+        <p data-aos="fade-left">
+          Feel free to reach out to us at Moroccan Treasures, your go-to destination for authentic Moroccan decor.
+          Whether you have questions about our products, need assistance with your order, or simply want to share your
+          love for Moroccan craftsmanship, we're here to help. Our dedicated team is eager to provide you with
+          exceptional service and ensure your Moroccan decor shopping experience is nothing short of extraordinary.
+          Contact us today, and let's bring a touch of Morocco to your home.</p>
       </div>
     </div>
-
+    <!-- Google Map -->
     <div data-aos="fade-up">
       <iframe style="border:0; width: 100%; height: 350px;"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27294.17967558544!2d-71.08852407769086!3d42.32963796861134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a0de7e77a4b%3A0x2f033fd6c495d564!2sMuseum%20of%20Fine%20Arts%2C%20Boston!5e0!3m2!1sen!2sus!4v1694122259532!5m2!1sen!2sus"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
+    <!-- infos and contact -->
     <div class="container">
-
       <div class="row mt-5">
-
         <div class="col-lg-4">
           <div class="info">
             <div class="address" data-aos="fade-right">
@@ -471,24 +497,20 @@
               <h4>Location:</h4>
               <p>Tremont St, Boston Common, MA 02108</p>
             </div>
-
             <div class="email" data-aos="fade-right">
               <ion-icon name="mail" style="zoom:2.0;"></ion-icon>
               <h4>Email:</h4>
               <p>info@example.com</p>
             </div>
-
             <div class="phone" data-aos="fade-right">
               <ion-icon name="call" style="zoom:2.0;"></ion-icon>
               <h4>Call:</h4>
               <p>+1 5589 55488 55s</p>
             </div>
           </div>
-
         </div>
 
         <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
-
           <form role="form" class="php-email-form">
             <div class="row">
               <div class="col-md-6 form-group">
@@ -510,17 +532,18 @@
           </form>
 
         </div>
-
       </div>
-
     </div>
   </section>
+
+  <!-- Footer -->
 
   <footer id="footer">
     <div class="container">
       <a href="#" class="logo navbar-brand" data-aos="fade-up">Double A</a>
-      <p data-aos="fade-up">Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe
-        commodi placeat.</p>
+      <p data-aos="fade-up">
+        "Elevate your living space with our exquisite home decor collections."
+      </p>
       <div class="social-links" data-aos="fade-down">
         <a href="#" class="twitter"><i class="bi bi-youtube"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -537,7 +560,8 @@
         </div>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
+
 
   <script type="module" src="./js/main.js"></script>
 </body>
