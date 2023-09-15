@@ -52,6 +52,7 @@
 
   <!-- Custom stylesheet for the webpage -->
   <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/responsive.css">
 </head>
 
 
@@ -285,7 +286,7 @@
 
   <!-- Products and Products popup -->
 
-  <section id="products" class="products">
+  <section id="products" class="products m-0">
     <div class="section-title">
       <h5 class="mb-3" data-aos="fade-right">Elegance Redefined</h5>
       <h4 class="mb-4" data-aos="fade-left">Artisanal Moroccan Decor for Your Space</h4>
@@ -319,12 +320,12 @@
   <!-- Shopping Cart -->
 
   <section id="shopping-cart">
-    <div class="shopping-cart-title w-100 d-flex justify-content-between align-items-center p-4 mb-4 rounded">
+    <div class="shopping-cart-title w-75 d-flex justify-content-between align-items-center p-4 mx-auto rounded">
       <h3 class="mr-auto p-2">Shopping Cart</h3>
       <button type="button" class="btn btn-outline-secondary btn-lg" id="go-back-button"><i
           class="fa fa-arrow-left"></i> Continue shopping</button>
     </div>
-    <div class="shopping-cart">
+    <div class="shopping-cart mt-4 pt-2">
       <div class="container">
         <div class="wrapper wrapper-content">
           <div class="row">
@@ -350,14 +351,14 @@
                     <span class="shipping-fee"></span>
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-2">
-                    <p>VAT<span>(10%)</span></p>
+                    <p>VAT (10%)</p>
                     <p><span class="tax"></span></p>
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-2">
                     <p class="fw-bold">Total</p>
                     <p class="fw-bold"><span class="total"></span></p>
                   </div>
-                  <div class="btn btn-primary mt-2 button-89" id="checkoutButton">Pay<span class="px-1 total"></span>
+                  <div class="mt-4 button-89" id="checkoutButton">Checkout<span class="px-1 total"></span>
                   </div>
                 </div>
               </div>
@@ -395,39 +396,43 @@
     </div>
     </div>
     <!-- Credit Card Form -->
-    <div class="container mt-5">
-      <form class="hidden" id="payment-form">
-        <div class="form-group">
+    <div class="container mt-5 payment-details">
+      <form class="hidden payment-inputs" id="payment-form">
+        <h3>Payment Details</h3>
+        <h4>Complete your purchase by providing your payment details</h4>
+        <div class="form-group pmt-input">
           <label for="credit-card">Enter 16-digit number:</label>
           <input type="text" class="form-control" id="credit-card" name="credit-card" placeholder="0000-0000-0000-0000"
             maxlength="20">
         </div>
 
-        <div class="form-group">
+        <div class="form-group d-flex justify-content-between">
+         <div class="d-flex flex-column pmt-input" style="width: 40%">
           <label for="card-expiration">Expiration Date:</label>
           <input type="text" class="form-control" id="card-expiration" placeholder="MM/YY" required>
           <span class="expiration-error"></span>
-        </div>
-
-        <div class="form-group">
+         </div>
+         <div class="d-flex flex-column pmt-input" style="width: 40%">
           <label for="card-cvv">CVV:</label>
           <input type="text" class="form-control" id="card-cvv" placeholder="***">
           <span class="cvv-error"></span>
+         </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group pmt-input">
           <label for="card-holder">Cardholder Name:</label>
           <input type="text" class="form-control" id="card-holder" placeholder="John Doe" required>
           <span class="card-holder-error"></span>
         </div>
-
+ 
+        <div class="sub-error"></div>
         <button class="button-89" id="submit-button">Submit</button>
       </form>
     </div>
     <!-- Shipping Form -->
-    <div class="container mt-5 shipping">
-      <form class="hidden" id="shippingForm">
-        <h1 class="mb-4">Shipping Information</h1>
+    <div class="container mt-5 shipping w-50">
+      <form class="hidden shipping-form" id="shippingForm">
+        <h3>Shipping Information</h3>
         <div class="form-group">
           <label for="firstName">First Name:</label>
           <input type="text" class="form-control" id="firstName" name="firstName" pattern="[A-Za-z]+" required>
