@@ -182,7 +182,6 @@ ion-icon {
   color: var(--mrc-gray);
   border-radius: 50%;
   padding: 5px;
-  width: 30px;
   height: 30px;
   text-align: center;
   position: relative;
@@ -225,7 +224,8 @@ ion-icon {
 
 .carousel-caption h5,
 p {
-  color: var(--mrc-blue);
+  color: var(--coin-silver);
+  text-align: center;
 }
 
 .carousel-caption h5 {
@@ -311,10 +311,8 @@ p {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
-  padding: 20px;
   list-style: none;
   margin: 30px auto;
-  padding: 0;
   width: 70%;
 }
 
@@ -459,6 +457,7 @@ p {
   font-weight: 200;
   font-size: 20px;
   color: var(--camel);
+  margin-bottom: 0;
 }
 
 /* Popup logo */
@@ -496,6 +495,7 @@ p {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  text-align: left;
 }
 
 .product .card:hover img {
@@ -507,7 +507,6 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* Center the popup */
-  width: 100%; /* Adjust the width as needed */
   max-width: 60%; /* Set a maximum width if desired */
   z-index: 9999; /* Set a higher z-index to place it on top */
   backdrop-filter: blur(10px); /* Add background blur */
@@ -588,11 +587,22 @@ table.table-bordered td {
   color: var(--french-bistre);
 }
 
+.product-cart h3 {
+  font-family: var(--ff-vibes);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-400);
+}
+
+.product-cart p {
+  font-family: var(--ff-merriweather); 
+  font-size: var(--fs-6);
+  margin-left: 20px;
+}
+
 .ibox-content {
   padding: 20px;
   border: 1px solid #ddd;
   margin-bottom: 20px;
-  background-color: var(--mrc-gray);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -668,7 +678,7 @@ table.table-bordered td {
 
 .category,
 .craft {
-  color: var(--mrc-blue);
+  color: var(--mrc-gray);
 }
 
 /* Style the item-quantity cell */
@@ -692,20 +702,26 @@ table.table-bordered td {
   padding: 14px 15px 7px;
   min-height: 48px;
 }
+
+.ibox-title h5 {
+  color: var(--french-bistre);
+  font-size: var(--fs-3);
+  font-family: var(--ff-vibes);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ibox p {
+  color: var(--mrc-gray);
+}
+
 .ibox-content {
-  background-color: #e3e3e3;
   color: inherit;
   padding: 15px 20px 20px 20px;
   border-color: #e7eaec;
   border-image: none;
   border-style: solid solid none;
   border-width: 1px 0;
-}
-
-.cartTotal {
-  font-weight: var(--fw-700);
-  color: var(--mrc-brown);
-  font-size: var(--fs-3);
 }
 
 /* Add styles for the 'no-scroll' class */
@@ -748,6 +764,15 @@ table.table-bordered td {
   display: none;
 }
 
+.product-details p {
+  text-align: left;
+}
+
+#empty-cart-msg h3 {
+  color: red;
+  font-size: 12px;
+}
+
 /* Services section */
 
 #services {
@@ -784,7 +809,7 @@ table.table-bordered td {
 
 .contact .info {
   width: 100%;
-  background: #fff;
+  background: var(--white);
 }
 
 .contact .info ion-icon {
@@ -815,17 +840,17 @@ table.table-bordered td {
 }
 
 .button-89 {
-  --b: 3px; /* border thickness */
+  --b: 2px; /* border thickness */
   --s: 0.45em; /* size of the corner */
-  --color: #373b44;
-
-  padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
-  color: var(--color);
+  --color: #274fae;
+  width: 40%;
+  padding: calc(0.3em + var(--s)) calc(0.6em + var(--s));
+  color: var(--mrc-gray);
   --_p: var(--s);
   background: conic-gradient(
       from 90deg at var(--b) var(--b),
       #0000 90deg,
-      var(--color) 0
+      var(--mrc-blue) 0
     )
     var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
     calc(100% - var(--b) - 2 * var(--_p));
@@ -833,19 +858,21 @@ table.table-bordered td {
   outline: var(--b) solid #0000;
   outline-offset: 0.6em;
   font-size: 16px;
-
   border: 0;
-
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .button-89:hover,
 .button-89:focus-visible {
   --_p: 0px;
-  outline-color: var(--color);
+  outline-color: var(--mrc-blue);
   outline-offset: 0.05em;
+  background-color: var(--coin-silver);
+  color: var(--mrc-red);
 }
 
 .button-89:active {
@@ -862,11 +889,119 @@ table.table-bordered td {
   margin-bottom: 40px;
 }
 
+/* Payment Form */
+
+.payment-details {
+  display: flex;
+  align-items: center;
+}
+
+/* Apply general styling to the form */
+.payment-inputs, .shipping-form {
+  background-color: var(--door-clr);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  color: var(--coin-silver);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: background-color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Add hover effect to smoothly change background color */
+.payment-inputs:hover, .shipping-form:hover {
+  background-color: hsla(231, 17%, 29%, 1); /* Adjusted background color */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
+
+.payment-inputs,
+.shipping {
+  margin: 40px auto;
+  font-family: var(--ff-merriweather);
+}
+
+.form-group h3, h4 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.payment-details h3,
+.shipping-form h3 {
+  text-align: center;
+  font-size: var(--fs-3);
+  font-family: var(--ff-merriweather);
+  margin-top: 40px;
+}
+
+.pmt-input {
+  height: 80px;
+}
+
+.form-control {
+  font-size: var(--fs-5);
+}
+
+.submit-error,
+.expiration-error,
+.cvv-error,
+.card-holder-error {
+  color: red;
+  font-size: 10px;
+} 
+
+.shipping .form-group {
+  height: 80px;
+}
+
+.shipping-message {
+  width: 50%;
+  height: 400px;
+  background-image: url(../assets/thankyou.jpg);
+  margin: 50px auto;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Use relative positioning for the container */
+  border-radius: 5px;
+}
+
+.shipping-message .custom-font {
+  font-family: var(--ff-vibes);
+  color: hsl(46.05deg 95.56% 91.18%);;
+}
+
+
+.shipping-message h3 {
+  position: absolute;
+  top: 45%; /* Position the text 50% from the top */
+  left: 55%; /* Position the text 50% from the left */
+  transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+  font-size: var(--fs-2);
+}
+
+.shipping-message h4 {
+  position: absolute;
+  top: 55%; /* Position the text 50% from the top */
+  left: 17%; /* Position the text 50% from the left */
+  transform: translate(-50%, -50%) rotate(-90deg); /* Center the text both horizontally and vertically */
+  font-size: var(--fs-3);
+}
+
+.shipping-message p {
+  position: absolute;
+  top: 81%; /* Position the text 50% from the top */
+  left: 55%; /* Position the text 50% from the left */
+  transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+  font-size: 18px;
+}
+
+
 /* Footer */
 
 #footer {
   background: #0f0f0f;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   padding: 30px 0;
   margin-top: 80px;
@@ -923,3 +1058,4 @@ table.table-bordered td {
 #footer .credits a:hover {
   color: var(--coin-silver);
 }
+
