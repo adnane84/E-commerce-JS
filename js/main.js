@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const { productName, price, craftsperson, image, description } = product;
     card.innerHTML = `
       <div class="col product">
-        <div class="card shadow p-3">
+        <div class="card shadow">
         <img type="button" src="./assets/new-window.png" class="view-details"></img>
           <img src="${image}" class="card-img-top rounded" alt="${craftsperson}" style="height:400px">
           <div class="card-body">
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.className = "product-popup container";
     const { productName, price, craftsperson, image, description } = product;
     popup.innerHTML = `
-      <div class="popup-content card mb-3  row">
+      <div class="popup-content card mb-3 row">
      <div class = "col popup-image">
      <img src="${image}" alt="${craftsperson}">
      </div>
@@ -132,11 +132,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function createCategoryFilters() {
     const categories = getUniqueCategories(data);
     categoryFilter.innerHTML = `
-    <li class="tab-button filter-button shadow" role="presentation" data-category="all">All</li>
+    <div class="col-md-4 button-51 filter" role="presentation" data-category="all">All</div>
     ${categories
       .map(
         (category) =>
-          `<li class="tab-button filter-button shadow" role="presentation" data-category="${category}">${category}</li>`
+          `<div class="col-md-4 button-51 filter"  role="presentation" data-category="${category}">${category}</div>`
       )
       .join("")}
   `;
