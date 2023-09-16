@@ -59,7 +59,7 @@
 <body>
 
   <!-- Header -->
-  
+
   <header class="header" data-header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-navbar>
       <div class="container-fluid d-flex">
@@ -299,16 +299,16 @@
 
     <!-- filtering categories -->
 
-    <div class="products-menu" data-aos="fade-up">
-      <div class="dropdown">
-        <button class="drop-btn btn btn-lg btn-primary dropdown-toggle">Sort and Search</button>
-        <div class="dropdown-content">
-          <input type="search" class="form-label" placeholder="Search" id="searchBar" />
-          <button class="dropdown-item" id="sortButton">&#9650; Name</button>
-          <button class="dropdown-item" id="sortButtonPrice">&#9660; Price</button>
-        </div>
+    <div class="container w-100" data-aos="fade-up">
+      <div class="row mb-5 justify-content-between" id="post-category"></div>
+
+      <div class="row mt-5 justify-content-between w-50 sort">
+        <div class="col-6 col-sm-4 col-md-3 button-51"><button id="sortButton">&#9650; Name</button></div>
+        <div class="col-6 col-sm-4 col-md-3"><input type="search" placeholder="Search" id="searchBar" /></div>
+        <div class="col-6 col-sm-4 col-md-3 button-51"> <button id="sortButtonPrice">&#9660; Price</button></div>
       </div>
-      <ul class="tab-container" id="post-category"></ul>
+    </div>
+    </div>
     </div>
 
     <!-- products -->
@@ -407,16 +407,16 @@
         </div>
 
         <div class="form-group d-flex justify-content-between">
-         <div class="d-flex flex-column pmt-input" style="width: 40%">
-          <label for="card-expiration">Expiration Date:</label>
-          <input type="text" class="form-control" id="card-expiration" placeholder="MM/YY" required>
-          <span class="expiration-error"></span>
-         </div>
-         <div class="d-flex flex-column pmt-input" style="width: 40%">
-          <label for="card-cvv">CVV:</label>
-          <input type="text" class="form-control" id="card-cvv" placeholder="***">
-          <span class="cvv-error"></span>
-         </div>
+          <div class="d-flex flex-column pmt-input" style="width: 40%">
+            <label for="card-expiration">Expiration Date:</label>
+            <input type="text" class="form-control" id="card-expiration" placeholder="MM/YY" required>
+            <span class="expiration-error"></span>
+          </div>
+          <div class="d-flex flex-column pmt-input" style="width: 40%">
+            <label for="card-cvv">CVV:</label>
+            <input type="text" class="form-control" id="card-cvv" placeholder="***">
+            <span class="cvv-error"></span>
+          </div>
         </div>
 
         <div class="form-group pmt-input">
@@ -424,7 +424,7 @@
           <input type="text" class="form-control" id="card-holder" placeholder="John Doe" required>
           <span class="card-holder-error"></span>
         </div>
- 
+
         <div class="sub-error"></div>
         <button class="button-89" id="submit-button">Submit</button>
       </form>
@@ -484,12 +484,6 @@
           exceptional service and ensure your Moroccan decor shopping experience is nothing short of extraordinary.
           Contact us today, and let's bring a touch of Morocco to your home.</p>
       </div>
-    </div>
-    <!-- Google Map -->
-    <div data-aos="fade-up">
-      <iframe style="border:0; width: 100%; height: 350px;"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27294.17967558544!2d-71.08852407769086!3d42.32963796861134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a0de7e77a4b%3A0x2f033fd6c495d564!2sMuseum%20of%20Fine%20Arts%2C%20Boston!5e0!3m2!1sen!2sus!4v1694122259532!5m2!1sen!2sus"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <!-- infos and contact -->
@@ -567,8 +561,14 @@
     </div>
   </footer>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
 
-  <script type="module" src="./js/main.js"></script>
+</html>
+
+<script type="module" src="./js/main.js"></script>
 </body>
 
 </html>
