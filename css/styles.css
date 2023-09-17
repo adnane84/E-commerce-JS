@@ -209,13 +209,22 @@ ion-icon {
 
 /* Carousel Section */
 
+#carouselExampleCaptions {
+  height: 800px; /* Set a fixed height for the carousel */
+}
+
+.carousel-item img {
+  height: 100%; /* Make images take full height of the carousel */
+  object-fit: cover; /* Maintain aspect ratio and cover the whole area */
+}
+
 .carousel-inner {
   width: 100%;
 }
 
 .carousel-item {
   width: 95%;
-  height: 700px;
+  height: 600px;
   align-items: center;
   justify-content: center;
   margin-left: 2.5%;
@@ -252,7 +261,6 @@ p {
 
 .about {
   width: 100%;
-  margin-top: 100px;
 }
 
 /* Work Desk Section */
@@ -307,97 +315,6 @@ p {
   display: none;
 }
 
-.tab-container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  list-style: none;
-  margin: 30px auto;
-  width: 70%;
-}
-
-.tab-button {
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
-  padding: 10px 10px;
-  text-align: center;
-  background-color: var(--mrc-red);
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-
-.tab-button:hover {
-  background-color: #ccc;
-  transform: translateY(-2px);
-}
-
-.tab-button.active {
-  background-color: #333;
-  color: white;
-  transform: translateY(-2px);
-}
-
-.filter-button.active-filter {
-  background-color: var(--mrc-blue);
-  color: #fff;
-}
-
-/* Dropdown styles */
-
-.products-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  width: 5%;
-  margin: 0 auto;
-}
-
-.drop-btn {
-  background-color: var(--mrc-gray);
-  border: none;
-  font-size: var(--fs-5);
-  padding: 10px;
-}
-
-.dropdown-content {
-  position: absolute;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  width: auto;
-  max-height: 150px; /* Set the maximum height for the dropdown */
-  overflow-y: auto;
-  display: none;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 5px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: left;
-}
-
-.products-menu {
-  margin-top: 60px;
-}
-
 /* Add to card button */
 
 .add-to-cart:hover {
@@ -447,7 +364,7 @@ p {
 .card-title {
   margin-top: 15px;
   margin-bottom: 15px;
-  font-size: var(--fs-4);
+  font-size: var(--fs-5);
   font-weight: var(--fw-500);
   font-family: var(--ff-vibes);
   color: var(--mrc-gray);
@@ -481,7 +398,7 @@ p {
   z-index: 1;
 }
 
-.post-card:hover .view-details {
+.view-details:hover {
   opacity: 1; /* Show the view-details image on hover */
 }
 
@@ -498,8 +415,10 @@ p {
   text-align: left;
 }
 
-.product .card:hover img {
+.card:hover img {
   transform: scale(0.95);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .product-popup {
@@ -1059,3 +978,69 @@ table.table-bordered td {
   color: var(--coin-silver);
 }
 
+.button-container .button2 {
+  width: 15%; /* Button 2 takes 15% of the container width */
+  max-width: 100px; /* Limit maximum width of Button 2 */
+  margin: 5px auto; /* Add some margin and center horizontally */
+  height: 60px; /* Set a fixed height for Button 2 */
+}
+
+.sort {
+  margin: 10px auto;
+}
+
+.filter {
+  width: 15%;
+}
+
+#searchBar {
+  padding: 6px;
+  border: 2px solid var(--mrc-blue);
+  color: var(--mrc-gray);
+}
+
+/* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: var(--mrc-gray);
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: var(--coin-silver);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--ff-merriweather);
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: var(--fs-6);
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
