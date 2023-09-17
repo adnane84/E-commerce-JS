@@ -1,1 +1,36 @@
+@media (max-width: 768px) {
 
+  .services-text h4 {
+    margin-top: 40px;
+  }
+
+  .button-30 {
+    padding: 8px 19px;
+    width: 100px;
+  }
+
+  #post-category {
+    margin: 0 20px;;
+  }
+
+  .card-title {
+    font-size: var(--fs-4);
+  }
+}
+
+@media (max-width: 960px) {
+  .services-text h4 {
+    margin-top: 40px;
+  }
+
+  .search {
+    margin: 0 auto;
+    width: 300px;
+  }
+}
+
+@media (max-width: 575px) {
+  .search-input {
+    width: 30%;
+  }
+}
