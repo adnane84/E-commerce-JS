@@ -1,6 +1,6 @@
 # E-commerce-JS
 
-Still working in Read Me.
+"More details about the project will be provided soon. We are currently considering additional features, such as the ability to remove items from the cart and adding a new 'buy again' button for products that have already been purchased."
 
 # Moroccan Decor E-commerce Website
 
