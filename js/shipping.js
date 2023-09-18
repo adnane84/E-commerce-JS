@@ -1,6 +1,6 @@
-  import {toggleElementVisibility} from './creditCard.js';
+import { toggleElementVisibility } from "./creditCard.js";
 
-  export function populateStateSelect()  {
+export function populateStateSelect() {
   // Example of populating the select element with states
   const states = [
     "Alabama",
@@ -52,75 +52,89 @@
     "Washington",
     "West Virginia",
     "Wisconsin",
-    "Wyoming"
+    "Wyoming",
   ];
-  
+
   // You can use this "states" array to populate your state select element.
-  
+
   const stateSelect = document.getElementById("state");
 
   states.forEach((state) => {
-      const option = document.createElement("option");
-      option.value = state;
-      option.text = state;
-      stateSelect.appendChild(option);
+    const option = document.createElement("option");
+    option.value = state;
+    option.text = state;
+    stateSelect.appendChild(option);
   });
 
   // Add form submission validation
   const form = document.getElementById("shippingForm");
   form.addEventListener("submit", function (event) {
-      const firstName = document.getElementById("firstName").value;
-      const lastName = document.getElementById("lastName").value;
-      const city = document.getElementById("city").value;
-      const zipCode = document.getElementById("zipCode").value;
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const city = document.getElementById("city").value;
+    const zipCode = document.getElementById("zipCode").value;
 
-      if (!/^[A-Za-z]+$/.test(firstName)) {
-          alert("First name should contain letters only.");
-          event.preventDefault();
-      }
+    if (!/^[A-Za-z]+$/.test(firstName)) {
+      alert("First name should contain letters only.");
+      event.preventDefault();
+    }
 
-      if (!/^[A-Za-z]+$/.test(lastName)) {
-          alert("Last name should contain letters only.");
-          event.preventDefault();
-      }
+    if (!/^[A-Za-z]+$/.test(lastName)) {
+      alert("Last name should contain letters only.");
+      event.preventDefault();
+    }
 
-      if (!/^[A-Za-z]+$/.test(city)) {
-          alert("City should contain letters only.");
-          event.preventDefault();
-      }
+    if (!/^[A-Za-z]+$/.test(city)) {
+      alert("City should contain letters only.");
+      event.preventDefault();
+    }
 
-      if (!/^\d{5}$/.test(zipCode)) {
-          alert("Zip code should contain exactly 5 digits.");
-          event.preventDefault();
-      }
+    if (!/^\d{5}$/.test(zipCode)) {
+      alert("Zip code should contain exactly 5 digits.");
+      event.preventDefault();
+    }
   });
-  }
+}
 
-  // Function to display a message when the "Submit" button is clicked
+// Function to generate a random 10-digit order number
+function generateOrderNumber() {
+  const characters = "0123456789";
+  const orderNumber =
+    "#" +
+    Array.from(
+      { length: 10 },
+      () => characters[Math.floor(Math.random() * characters.length)]
+    ).join("");
+  return orderNumber;
+}
+
+// Function to display a message when the "Submit" button is clicked
 export function displaySubmitMessage() {
   const submitButton = document.getElementById("submit-shipping");
   const successMessage = document.getElementById("shippingSuccessMessage");
 
   submitButton.addEventListener("click", () => {
-    const shoppingMsg = document.createElement('div');
+    const orderNumber = generateOrderNumber();
+    const shoppingMsg = document.createElement("div");
     shoppingMsg.classList = "shipping-message";
     shoppingMsg.style.display = "block";
     shoppingMsg.innerHTML = `
-    <p>Shipping information submitted successfully!</p>
+    <h3 class="custom-font">Shipping information </br> submitted successfully!</h3>
+    <h4 class="custom-font">Thank You</h4>
+    <p class="custom-font">Order Number: <span id="orderNumber">${orderNumber}</span></p>
     `;
-      
+
     successMessage.appendChild(shoppingMsg);
-      // Optionally, you can clear the form fields after displaying the message
-      clearFormFields();
-      
+    // Optionally, you can clear the form fields after displaying the message
+    clearFormFields();
   });
 }
 
 // Function to clear form fields
 function clearFormFields() {
- const shipping = document.querySelector('.shipping');
- shipping.classList.add('hidden');
- toggleElementVisibility("payment-form");
+  const shipping = document.querySelector(".shipping");
+  shipping.classList.add("hidden");
+  toggleElementVisibility("payment-form");
 }
 
 // Call the displaySubmitMessage function when the page loads
