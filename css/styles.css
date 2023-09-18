@@ -33,6 +33,7 @@
   --fs-4: 2.6rem;
   --fs-5: 1.6rem;
   --fs-6: 1.3rem;
+  --fs-7: 1.25rem;
 
   --fw-400: 400;
   --fw-500: 500;
@@ -87,6 +88,10 @@ ion-icon {
 a {
   color: var(--camel);
   text-decoration: none;
+}
+
+p {
+  color: var(--coin-silver);
 }
 
 button {
@@ -158,6 +163,7 @@ body {
 
 .nav-item a {
   position: relative;
+  color: var(--mrc-gray);
 }
 
 .nav-item {
@@ -189,11 +195,17 @@ ion-icon {
   left: 25px;
 }
 
+.cart-container:hover .digit-icon {
+  display: inline-block; /* Show the quantity display on hover */
+  cursor: pointer;
+  color: #ff5722; /* Change icon color on hover */
+}
+
 /* Underline base */
 .nav-item::before {
   content: "";
   position: absolute;
-  width: 70%;
+  width: 40px;
   height: 2px; /* Adjust thickness of the underline */
   background-color: #333; /* Change this to your desired underline color */
   bottom: -2px; /* Push the underline just below the text */
@@ -233,7 +245,7 @@ ion-icon {
 
 .carousel-caption h5,
 p {
-  color: var(--coin-silver);
+  color: var(--white);
   text-align: center;
 }
 
@@ -255,6 +267,10 @@ p {
 .carousel-control-prev-icon {
   width: 30px;
   height: 30px;
+}
+
+.carousel-indicators {
+  z-index: 1;
 }
 
 /* About Section */
@@ -283,10 +299,6 @@ p {
   font-size: var(--fs-1);
 }
 
-.section-title h4 p {
-  color: var(--door-clr);
-}
-
 .section-title h4 {
   margin-top: 30px;
   font-weight: var(--fw-500);
@@ -296,6 +308,7 @@ p {
 .section-title p {
   margin: 40px auto;
   line-height: 1.6;
+  color: var(--coin-silver);
 }
 
 .work-desk {
@@ -364,7 +377,7 @@ p {
 .card-title {
   margin-top: 15px;
   margin-bottom: 15px;
-  font-size: var(--fs-5);
+  font-size: var(--fs-4);
   font-weight: var(--fw-500);
   font-family: var(--ff-vibes);
   color: var(--mrc-gray);
@@ -413,6 +426,7 @@ p {
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-align: left;
+  color: var(--coin-silver);
 }
 
 .card:hover img {
@@ -439,9 +453,6 @@ p {
   box-shadow: var(--shadow-1);
   text-align: center;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1fr;
 }
 
 .popup-image img {
@@ -458,6 +469,7 @@ p {
 }
 
 .popup-title {
+  margin-top: 20px;
   font-weight: var(--fw-600);
   font-size: 40px;
   color: var(--camel);
@@ -470,6 +482,7 @@ p {
   font-weight: var(--fw-400);
   letter-spacing: 0.5px;
   font-family: var(--ff-merriweather);
+  color: var(--mrc-gray);
 }
 
 .popup-info h4 {
@@ -480,7 +493,7 @@ p {
 }
 
 .popup-image img:hover {
-  transform: scale(1.05);
+  transform: scale(0.95);
 }
 
 .body-no-scroll {
@@ -499,6 +512,14 @@ table.table-bordered td {
   border: none;
 }
 
+.product-cart {
+  width: 100%;
+}
+
+.info {
+  width: 55%;
+}
+
 .shopping-cart-title h3 {
   font-size: var(--fs-1);
   font-weight: var(--fw-700);
@@ -513,7 +534,7 @@ table.table-bordered td {
 }
 
 .product-cart p {
-  font-family: var(--ff-merriweather); 
+  font-family: var(--ff-merriweather);
   font-size: var(--fs-6);
   margin-left: 20px;
 }
@@ -722,6 +743,7 @@ table.table-bordered td {
   font-size: var(--fs-8);
   font-weight: var(--fw-400);
   font-family: var(--ff-merriweather);
+  color: var(--coin-silver);
 }
 
 /* Contact */
@@ -816,7 +838,8 @@ table.table-bordered td {
 }
 
 /* Apply general styling to the form */
-.payment-inputs, .shipping-form {
+.payment-inputs,
+.shipping-form {
   background-color: var(--door-clr);
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -829,7 +852,8 @@ table.table-bordered td {
 }
 
 /* Add hover effect to smoothly change background color */
-.payment-inputs:hover, .shipping-form:hover {
+.payment-inputs:hover,
+.shipping-form:hover {
   background-color: hsla(231, 17%, 29%, 1); /* Adjusted background color */
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 }
@@ -840,7 +864,8 @@ table.table-bordered td {
   font-family: var(--ff-merriweather);
 }
 
-.form-group h3, h4 {
+.form-group h3,
+h4 {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -867,7 +892,7 @@ table.table-bordered td {
 .card-holder-error {
   color: red;
   font-size: 10px;
-} 
+}
 
 .shipping .form-group {
   height: 80px;
@@ -875,7 +900,7 @@ table.table-bordered td {
 
 .shipping-message {
   width: 50%;
-  height: 400px;
+  height: 500px;
   background-image: url(../assets/thankyou.jpg);
   margin: 50px auto;
   overflow: hidden;
@@ -887,15 +912,17 @@ table.table-bordered td {
 
 .shipping-message .custom-font {
   font-family: var(--ff-vibes);
-  color: hsl(46.05deg 95.56% 91.18%);;
+  color: hsl(46.05deg 95.56% 91.18%);
 }
-
 
 .shipping-message h3 {
   position: absolute;
   top: 45%; /* Position the text 50% from the top */
   left: 55%; /* Position the text 50% from the left */
-  transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the text both horizontally and vertically */
   font-size: var(--fs-2);
 }
 
@@ -911,10 +938,12 @@ table.table-bordered td {
   position: absolute;
   top: 81%; /* Position the text 50% from the top */
   left: 55%; /* Position the text 50% from the left */
-  transform: translate(-50%, -50%); /* Center the text both horizontally and vertically */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the text both horizontally and vertically */
   font-size: 18px;
 }
-
 
 /* Footer */
 
@@ -1006,7 +1035,8 @@ table.table-bordered td {
   background-color: var(--mrc-gray);
   border-radius: 4px;
   border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   box-sizing: border-box;
   color: var(--coin-silver);
   cursor: pointer;
@@ -1022,25 +1052,27 @@ table.table-bordered td {
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
+  transition: box-shadow 0.15s, transform 0.15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow,transform;
+  will-change: box-shadow, transform;
   font-size: var(--fs-6);
 }
 
 .button-30:focus {
-  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
 }
 
 .button-30:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
 .button-30:active {
-  box-shadow: #D6D6E7 0 3px 7px inset;
+  box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
 }
