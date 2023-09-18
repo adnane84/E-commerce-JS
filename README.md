@@ -1,5 +1,7 @@
 # E-commerce-JS
 
+Still working in Read Me.
+
 # Moroccan Decor E-commerce Website
 
 ![Website Screenshot](./screenshot.png)
