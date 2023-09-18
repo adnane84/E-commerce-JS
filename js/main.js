@@ -11,26 +11,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const sortButton = document.getElementById("sortButton");
   const sortPrice = document.getElementById("sortButtonPrice");
   const categoryFilter = document.getElementById("post-category");
+  const header = document.getElementById("header");
+  const contact = document.getElementById("contact");
+  const footer = document.getElementById("footer");
   let currentData = [...data];
   let currentFilter = null;
   let searchQuery = "";
 
   function createCards(product) {
     const card = document.createElement("div");
-    card.className = "post-card";
+    card.className = "col-md-4"; // Adjust the column size for different screen sizes
     const { productName, price, craftsperson, image, description } = product;
     card.innerHTML = `
-      <div class="col product">
-        <div class="card shadow">
+      <div class="card shadow">
         <img type="button" src="./assets/new-window.png" class="view-details"></img>
-          <img src="${image}" class="card-img-top rounded" alt="${craftsperson}" style="height:400px">
-          <div class="card-body">
-            <h5 class="card-title">${productName}</h5>
-            <p class="card-text">${description}</p>
-            <div class="product-info">
-              <button type="button" class="add-to-cart btn btn-outline-secondary btn-lg">Add Product</button>
-              <h4>$${price}</h4>
-            </div>
+        <img src="${image}" class="card-img-top rounded" alt="${craftsperson}" style="height:400px">
+        <div class="card-body">
+          <h5 class="card-title">${productName}</h5>
+          <p class="card-text">${description}</p>
+          <div class="product-info">
+            <button type="button" class="add-to-cart btn btn-outline-secondary btn-lg">Add Product</button>
+            <h4>$${price}</h4>
           </div>
         </div>
       </div>
@@ -72,23 +73,53 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    const closePopupButton = popup.querySelector(".close-popup");
-    closePopupButton.addEventListener("click", () => {
-      popup.style.display = "none";
-      document.body.classList.remove("body-no-scroll"); // Remove the class to re-enable scrolling
+    const hideElements = () => {
+      const elementsToHide = [
+        contact,
+        footer,
+        header,
+        categoryFilter,
+        container,
+        searchBar,
+      ];
+      elementsToHide.forEach((element) => {
+        element.style.opacity = 0;
+      });
+      document.body.classList.add("body-no-scroll");
+    };
 
-      // Show the cards container again
-      container.style = "opacity: 1";
-    });
+    const showElements = () => {
+      const elementsToShow = [
+        contact,
+        footer,
+        header,
+        categoryFilter,
+        container,
+        searchBar,
+      ];
+      elementsToShow.forEach((element) => {
+        element.style.opacity = 1;
+      });
+      document.body.classList.remove("body-no-scroll");
+    };
+
+    const closePopup = () => {
+      popup.style.display = "none";
+      showElements();
+    };
+
+    const addToCartHandler = () => {
+      addToCart(product);
+    };
+
+    const closePopupButton = popup.querySelector(".close-popup");
+    closePopupButton.addEventListener("click", closePopup);
 
     const addToCartButton = popup.querySelector(".add-to-cart");
-    addToCartButton.addEventListener("click", () => {
-      addToCart(product);
-    });
+    addToCartButton.addEventListener("click", addToCartHandler);
 
-    // Hide the cards container
-    container.style = "opacity: 0";
-    document.body.classList.add("body-no-scroll");
+    // Initial hide of elements
+    hideElements();
 
     return popup;
   }
@@ -132,11 +163,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function createCategoryFilters() {
     const categories = getUniqueCategories(data);
     categoryFilter.innerHTML = `
-    <div class="col-md-4 button-51 filter" role="presentation" data-category="all">All</div>
+    <div class="col-md-4 button-30 filter" role="presentation" data-category="all">All</div>
     ${categories
       .map(
         (category) =>
-          `<div class="col-md-4 button-51 filter"  role="presentation" data-category="${category}">${category}</div>`
+          `<div class="col-md-4 button-30 filter"  role="presentation" data-category="${category}">${category}</div>`
       )
       .join("")}
   `;
