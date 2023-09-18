@@ -1,4 +1,4 @@
-import { cartItems} from "./cart.js";
+import { cartItems } from "./cart.js";
 
 // Helper function to toggle the visibility of an element by ID
 export function toggleElementVisibility(id) {
@@ -19,8 +19,10 @@ function clearErrorMessage(className) {
 // Function to format credit card number
 export function formatCreditCard() {
   const input = document.getElementById("credit-card");
-  const value = input.value.replace(/\D/g, ''); // Remove non-digit characters
-  const formattedValue = value.replace(/(\d{4})(?=\d)/g, '$1-').substring(0, 19);
+  const value = input.value.replace(/\D/g, ""); // Remove non-digit characters
+  const formattedValue = value
+    .replace(/(\d{4})(?=\d)/g, "$1-")
+    .substring(0, 19);
   input.value = formattedValue;
 }
 
@@ -29,8 +31,10 @@ export function validateCVV() {
   const cvvInput = document.getElementById("card-cvv");
   const cvvValue = cvvInput.value.trim();
   const cvvError = document.querySelector(".cvv-error");
-  
-  cvvError.textContent = /^\d{3}$/.test(cvvValue) ? "" : "CVV must be 3 digits.";
+
+  cvvError.textContent = /^\d{3}$/.test(cvvValue)
+    ? ""
+    : "*CVV must be 3 digits.";
 }
 
 // Function to validate expiration date
@@ -41,16 +45,19 @@ export function validateExpiration() {
   const datePattern = /^(0[1-9]|1[0-2])\/(\d{2})$/;
 
   if (!datePattern.test(expirationValue)) {
-    expirationError.textContent = "Invalid format (MM/YY).";
+    expirationError.textContent = "*Invalid format (MM/YY).";
     return;
   }
 
-  const [inputMonth, inputYear] = expirationValue.split('/').map(Number);
+  const [inputMonth, inputYear] = expirationValue.split("/").map(Number);
   const currentYear = new Date().getFullYear() % 100;
   const currentMonth = new Date().getMonth() + 1;
 
-  if (inputYear < currentYear || (inputYear === currentYear && inputMonth < currentMonth)) {
-    expirationError.textContent = "Card has expired.";
+  if (
+    inputYear < currentYear ||
+    (inputYear === currentYear && inputMonth < currentMonth)
+  ) {
+    expirationError.textContent = "*Card has expired";
   } else {
     expirationError.textContent = "";
   }
@@ -64,7 +71,7 @@ export function validateCardHolder() {
 
   cardHolderError.textContent = /^[A-Za-z\s]+$/.test(cardHolderValue)
     ? ""
-    : "Cardholder name can only contain letters and spaces.";
+    : "*Cardholder name can only contain letters and spaces.";
 }
 
 // Function to validate all fields and show the shipping form if all validations pass
@@ -72,11 +79,16 @@ export function validateAndShowShippingForm() {
   const cvvError = document.querySelector(".cvv-error");
   const expirationError = document.querySelector(".expiration-error");
   const cardHolderError = document.querySelector(".card-holder-error");
+  const submitError = document.querySelector(".sub-error");
 
-  if (cvvError.textContent === "" && expirationError.textContent === "" && cardHolderError.textContent === "") {
+  if (
+    cvvError.textContent === "" &&
+    expirationError.textContent === "" &&
+    cardHolderError.textContent === ""
+  ) {
     toggleElementVisibility("shippingForm");
   } else {
-    console.log("Please fix the errors in the form before submitting.");
+    submitError.innerHTML = `<span class="submit-error">*Please fix the errors in the form before submitting.</span>`;
   }
 }
 
