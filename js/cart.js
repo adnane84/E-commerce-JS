@@ -1,7 +1,12 @@
 import { data } from "./data.js";
-import { formatCreditCard, validateCVV, validateExpiration, validateCardHolder, validateAndShowShippingForm } from "./creditCard.js";
-import { populateStateSelect, displaySubmitMessage} from "./shipping.js"; // Replace the path with the actual path to your stateSelect.js file
-
+import {
+  formatCreditCard,
+  validateCVV,
+  validateExpiration,
+  validateCardHolder,
+  validateAndShowShippingForm,
+} from "./creditCard.js";
+import { populateStateSelect, displaySubmitMessage } from "./shipping.js"; // Replace the path with the actual path to your stateSelect.js file
 
 export const cartItems = [];
 
@@ -18,8 +23,8 @@ export function addToCart(product) {
   updateCart(); // Update the cart display
   updateCartIconDigit(); // Update the cart icon digit
   updateTaxAndShippingElements();
-   // Save the updated cartItems array to local storage
-   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // Save the updated cartItems array to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
 // Function to increment item quantity
@@ -33,8 +38,8 @@ export function incrementQuantity(product) {
   updateCart();
   updateCartIconDigit();
   updateTaxAndShippingElements();
-   // Save the updated cartItems array to local storage
-   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // Save the updated cartItems array to local storage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
 // Function to decrement item quantity
@@ -51,8 +56,8 @@ export function decrementQuantity(product) {
     updateCart();
     updateCartIconDigit();
     updateTaxAndShippingElements();
-     // Save the updated cartItems array to local storage
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    // Save the updated cartItems array to local storage
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 }
 
@@ -69,47 +74,55 @@ export function updateCart() {
     const { image, productName, craftsperson, category } = product;
     listItem.className = "ibox-content";
     listItem.innerHTML = `
-    <div class="table-responsive">
-    <table class="table table-bordered shoping-cart-table">
-    <tbody class="product-cart">
-      <tr>
-        <td style="height: 100px; width: 10%" class="align-middle">
-          <div class="d-flex justify-content-center align-items-center">
-            <img src="${image}" alt="${productName}" class="img-fluid">
-          </div>
-        </td>
-        <td class="desc" style="height: 100px; width: 60%">
-          <div class="product-details col-md-8 mt-4">
-            <h3>${productName}</h3>
-            <p>
-              Craftsperson: <em class="text-info craft">${craftsperson}</em>
-            </p>
-            <p>
-              Category: <em class="text-success category">${category}</em>
-            </p>
-          </div>
-        </td>
-        <td class="item-quantity align-middle">
-          <div class="d-flex justify-content-center align-items-center">
-            <button class="btn btn-outline-primary increment-button" data-product='${JSON.stringify(product)}' style="height: 30px;">+</button>
-            <span class="quantity form-control text-center">${item.quantity}</span>
-            <button class="btn btn-outline-primary decrement-button" data-product='${JSON.stringify(product)}' style="height: 30px;">-</button>
-          </div>
-        </td>
-        <td class="align-middle">
-          <h4 class="cart-item-price">$${product.price}</h4>
-        </td>
-        <td class="align-middle">
-          <div class="d-flex justify-content-center">
-            <button class="btn btn-outline-danger delete-button" data-product='${JSON.stringify(product)}'>
-              <img src="./assets/trash-fill.svg" alt="Delete">
-            </button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <div class="table-responsive">
+        <table class="table table-bordered shoping-cart-table">
+          <tbody>
+            <tr  class="product-cart">
+              <td class="align-middle" style="width: 20%">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="${image}" alt="${productName}" class="img-fluid" style="max-height: 120px; max-width: 100%;">
+                </div>
+              </td>
+              <td class="info">
+                <div class="product-details mt-4">
+                  <h3>${productName}</h3>
+                  <p class="mb-1">
+                    Craftsperson: <em class="craft">${craftsperson}</em>
+                  </p>
+                  <p class="mb-0">
+                    Category: <em class="category">${category}</em>
+                  </p>
+                </div>
+              </td>
+              <td class="item-quantity align-middle">
+                <div class="d-flex justify-content-center align-items-center">
+                  <button class="btn btn-outline-primary increment-button" data-product='${JSON.stringify(
+                    product
+                  )}'>+</button>
+                  <span class="quantity form-control text-center">${
+                    item.quantity
+                  }</span>
+                  <button class="btn btn-outline-primary decrement-button" data-product='${JSON.stringify(
+                    product
+                  )}'>-</button>
+                </div>
+              </td>
+              <td class="align-middle">
+                <h4 class="cart-item-price">$${product.price}</h4>
+              </td>
+              <td class="align-middle">
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-outline-danger delete-button" data-product='${JSON.stringify(
+                    product
+                  )}'>
+                    <img src="./assets/trash-fill.svg" alt="Delete">
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     `;
 
     // Append the list item to the cart container
@@ -155,8 +168,8 @@ export function removeItemFromCart(product) {
     cartItems.splice(itemIndex, 1);
     updateCart();
     updateCartIconDigit();
-     // Save the updated cartItems array to local storage
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    // Save the updated cartItems array to local storage
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 }
 
@@ -278,19 +291,19 @@ displayRandomProducts();
 
 // Function to calculate tax and shipping fee based on subtotal
 function calculateTax(subtotal) {
-  const taxRate = 0.10; // 10% tax rate
+  const taxRate = 0.1; // 10% tax rate
   const tax = subtotal * taxRate;
   return tax;
 }
 
 export function updateTaxAndShippingElements() {
-  const subtotalElement = document.querySelector('.cartTotal');
-  const taxElement = document.querySelector('.tax');
-  const shippingFeeElement = document.querySelector('.shipping-fee');
-  const totalElement = document.querySelector('.total');
-  
+  const subtotalElement = document.querySelector(".cartTotal");
+  const taxElement = document.querySelector(".tax");
+  const shippingFeeElement = document.querySelector(".shipping-fee");
+  const totalElement = document.querySelector(".total");
+
   const shipping = 14.99;
-  const subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
+  const subtotal = parseFloat(subtotalElement.innerText.replace("$", ""));
   const tax = calculateTax(subtotal);
 
   if (subtotal > 0) {
@@ -299,16 +312,15 @@ export function updateTaxAndShippingElements() {
     } else {
       shippingFeeElement.innerHTML = `<p class="shipping">Free shipping</p>`;
     }
-    
+
     taxElement.textContent = `$${tax.toFixed(2)}`;
     // Only add shipping fee to the total if it's not free
     const total = subtotal + (subtotal < 500 ? shipping : 0);
     totalElement.textContent = `$${(total + tax).toFixed(2)}`;
   } else {
-    shippingFeeElement.textContent = '';
-    totalElement.textContent = '';
-    taxElement.textContent = '';
-    subtotalElement.innerHTML = '<h4>Your cart is empty!</h4>';
+    shippingFeeElement.textContent = "";
+    totalElement.textContent = "";
+    taxElement.textContent = "";
   }
 }
 
@@ -326,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Call the updateTaxAndShippingElements function when the page loads and whenever the cart is updated
-document.addEventListener('DOMContentLoaded', updateTaxAndShippingElements);
+document.addEventListener("DOMContentLoaded", updateTaxAndShippingElements);
 
 // Call the function when the page loads
 document.addEventListener("DOMContentLoaded", () => {
