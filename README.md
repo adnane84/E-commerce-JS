@@ -17,14 +17,6 @@ This is a fully responsive e-commerce website template with a focus on Moroccan 
 - Integration with external libraries like Bootstrap and Ionicons.
 - Contact form for user inquiries.
 
-## Live Demo
-
-You can check out a live demo of this website [here](https://your-demo-url.com).
-
-## Getting Started
-
-Usage
-You can use this template as a starting point for your e-commerce website. Modify the content, add your products, and integrate it with a backend to create a fully functional online store.
 
 Credits
 Bootstrap
